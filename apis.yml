@@ -1,0 +1,104 @@
+name: Congress.gov API
+description: >
+  The official REST API for the United States Congress, provided by the Library
+  of Congress. It offers public access to machine-readable legislative data
+  including bills, amendments, laws, committee reports, the Congressional
+  Record, nominations, treaties, CRS reports, house votes, hearings, and
+  member information. The API is free to use and requires a key obtained via
+  the Data.gov signup page. Responses are available in JSON or XML format, with
+  version 3 (v3) as the current release.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/congress-gov/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+aid: congress-gov
+type: Index
+tags:
+  - Government
+  - Legislative
+  - Congress
+  - Bills
+  - Amendments
+  - Members
+  - Treaties
+  - Nominations
+  - Congressional Record
+  - US Federal
+apis:
+  - name: Congress.gov API v3
+    description: >
+      Version 3 of the Congress.gov REST API, providing access to US
+      legislative data including bills, amendments, laws, members, committees,
+      committee reports, the Congressional Record, nominations, treaties, CRS
+      reports, hearing records, house votes, and house/senate communications.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.congress.gov/
+    baseURL: https://api.congress.gov/v3
+    tags:
+      - Bills
+      - Amendments
+      - Laws
+      - Members
+      - Committees
+      - Congressional Record
+      - Nominations
+      - Treaties
+      - CRS Reports
+    properties:
+      - type: Documentation
+        url: https://github.com/LibraryOfCongress/api.congress.gov
+      - type: OpenAPI
+        url: https://api.congress.gov/
+      - type: PostmanCollection
+        url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+      - type: GitHubRepository
+        url: https://github.com/LibraryOfCongress/api.congress.gov
+      - type: SignUp
+        url: https://api.congress.gov/sign-up/
+      - type: ChangeLog
+        url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+      - type: CoverageDates
+        url: https://www.congress.gov/help/coverage-dates
+      - type: DataOffsite
+        url: https://www.congress.gov/help/using-data-offsite
+      - type: ApiKeyInfo
+        url: https://api.data.gov/docs/api-key/
+      - type: Issues
+        url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+      - type: Plans
+        url: plans/congress-gov-plans-pricing.yml
+      - type: RateLimits
+        url: rate-limits/congress-gov-rate-limits.yml
+      - type: FinOps
+        url: finops/congress-gov-finops.yml
+    contact:
+      - FN: Library of Congress
+        url: https://www.loc.gov/apis/additional-apis/congress-dot-gov-api/
+        email: ""
+common:
+  - type: Website
+    url: https://www.congress.gov/
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: GitHubOrg
+    url: https://github.com/LibraryOfCongress
+  - type: Blog
+    url: https://blogs.loc.gov/law/
+  - type: Pricing
+    url: https://api.congress.gov/sign-up/
+  - type: SignUp
+    url: https://api.congress.gov/sign-up/
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

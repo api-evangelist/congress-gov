@@ -1,0 +1,43 @@
+name: Congress.gov API FinOps
+description: >
+  Financial operations guidance for the Congress.gov API. This API is a free
+  public service operated by the Library of Congress and funded by the US
+  federal government. There are no direct costs to API consumers.
+url: https://api.congress.gov/
+cost:
+  model: free
+  price: 0
+  currency: USD
+  notes: >
+    The Congress.gov API is provided at no cost to developers. Funding comes
+    from the Library of Congress operating budget as part of its public data
+    dissemination mission. No billing, subscription, or payment integration
+    is required.
+optimization:
+  - name: Maximize Page Size
+    description: >
+      Use limit=250 to minimize the number of HTTP requests needed to retrieve
+      large result sets, reducing overall latency and bandwidth overhead.
+  - name: Cache Responses
+    description: >
+      Legislative data changes infrequently for historical congresses. Cache
+      responses locally to avoid redundant calls and stay within the 5,000
+      requests/hour limit.
+  - name: Request Rate Awareness
+    description: >
+      Monitor request counts to avoid hitting the 5,000/hour ceiling. Implement
+      exponential back-off on 429 responses.
+  - name: Select Response Format
+    description: >
+      Use JSON format for most integrations; XML is available for legacy
+      systems. JSON is lighter and easier to parse in most modern environments.
+risks:
+  - name: Government Shutdown
+    description: >
+      As a federal service, the API may become unavailable during US government
+      shutdowns or budget lapses. Build resilience and caching into dependent
+      applications.
+  - name: No SLA
+    description: >
+      No formal SLA or uptime guarantee is published. Monitor GitHub issues for
+      outage reports and planned maintenance notifications.

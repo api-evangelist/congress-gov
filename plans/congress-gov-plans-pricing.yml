@@ -1,0 +1,25 @@
+name: Congress.gov API Plans and Pricing
+description: Pricing and access tiers for the Congress.gov API provided by the Library of Congress.
+url: https://api.congress.gov/sign-up/
+plans:
+  - name: Free Public Access
+    description: >
+      The Congress.gov API is a free, publicly available service provided by the
+      Library of Congress. There are no paid tiers. Any member of the public may
+      sign up for an API key via the Data.gov signup page at no cost.
+    price: 0
+    currency: USD
+    unit: month
+    rateLimit:
+      requests: 5000
+      period: hour
+    features:
+      - Free API key via api.congress.gov/sign-up/
+      - Access to all v3 endpoints
+      - JSON and XML response formats
+      - Up to 250 results per request
+      - Pagination support (limit/offset)
+      - Bills, amendments, laws, members, committees
+      - Congressional Record, committee reports
+      - Nominations, treaties, house/senate communications
+      - CRS reports, hearing records, house votes

@@ -1,0 +1,30 @@
+name: Congress.gov API Rate Limits
+description: Rate limiting policies for the Congress.gov API.
+url: https://github.com/LibraryOfCongress/api.congress.gov
+limits:
+  - name: Hourly Request Limit
+    description: >
+      The Congress.gov API enforces a rate limit of 5,000 requests per hour per
+      API key. Requests exceeding this threshold will be rejected until the
+      rolling window resets.
+    requests: 5000
+    period: hour
+    scope: api_key
+  - name: Default Page Size
+    description: >
+      Responses default to 20 results per request. The limit parameter can be
+      used to request up to 250 results per page.
+    default: 20
+    maximum: 250
+    parameter: limit
+  - name: Offset Pagination
+    description: >
+      The offset parameter controls the starting record position for paginated
+      responses. No hard cap on total records retrievable; pagination can be
+      used to walk through all results.
+    parameter: offset
+notes:
+  - Rate limit exemptions can be requested by submitting an issue in the GitHub repository.
+  - The rate limit applies equally to both JSON and XML response formats.
+  - No burst limits or daily caps are documented beyond the hourly limit.
+contact: https://github.com/LibraryOfCongress/api.congress.gov/issues
