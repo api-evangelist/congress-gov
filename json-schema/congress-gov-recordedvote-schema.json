@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/recordedVote",
+  "title": "recordedVote",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-08-08T12:00:00Z"
+    },
+    "rollNumber": {
+      "type": "integer",
+      "example": 312
+    },
+    "sessionNumber": {
+      "type": "integer",
+      "example": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1171/vote_117_1_00312.xml"
+    }
+  }
+}

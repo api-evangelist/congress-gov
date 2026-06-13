@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/hearing",
+  "title": "hearing",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "jacketNumber": {
+      "type": "integer",
+      "example": 48144
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-01 21:19:33+00:00"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/hearing/117/house/41365?format=json"
+    }
+  }
+}

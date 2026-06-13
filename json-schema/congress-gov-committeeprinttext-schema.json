@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/committeePrintText",
+  "title": "committeePrintText",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "example": "Formatted Text"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.congress.gov/117/cprt/HPRT48144/CPRT-117HPRT48144.htm"
+    }
+  }
+}

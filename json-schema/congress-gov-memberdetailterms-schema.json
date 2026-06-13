@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/memberDetailTerms",
+  "title": "memberDetailTerms",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 116
+    },
+    "endYear": {
+      "type": "integer",
+      "example": 2021
+    },
+    "memberType": {
+      "type": "string",
+      "example": "Senator"
+    },
+    "startYear": {
+      "type": "integer",
+      "example": 2019
+    },
+    "stateCode": {
+      "type": "string",
+      "example": "VT"
+    },
+    "stateName": {
+      "type": "string",
+      "example": "Vermont"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/BillDetail",
+  "title": "BillDetail",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/bill/117/s/1234/actions?format=json"
+        }
+      }
+    },
+    "committees": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/bill/117/s/1234/committees?format=json"
+        }
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "introducedDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-01"
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2019-01-01"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "legislationUrl": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.congress.gov/bill/117th-congress/senate-bill/1234"
+    },
+    "number": {
+      "type": "string",
+      "example": 1234
+    },
+    "originChamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "originChamberCode": {
+      "type": "string",
+      "example": "S"
+    },
+    "policyArea": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Health"
+        }
+      }
+    },
+    "relatedBills": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/117/s/1234/relatedbills?format=json"
+    },
+    "sponsors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sponsor"
+      }
+    }
+  }
+}

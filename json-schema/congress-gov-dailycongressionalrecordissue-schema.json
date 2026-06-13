@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/DailyCongressionalRecordIssue",
+  "title": "DailyCongressionalRecordIssue",
+  "type": "object",
+  "properties": {
+    "issue": {
+      "type": "object",
+      "properties": {
+        "congress": {
+          "type": "integer",
+          "example": 119
+        },
+        "fullIssue": {
+          "$ref": "#/components/schemas/fullIssue"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2025-01-03T05:00:00Z"
+        },
+        "issueNumber": {
+          "type": "string",
+          "example": "1"
+        },
+        "sessionNumber": {
+          "type": "integer",
+          "example": 1
+        },
+        "updateDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2025-01-04T16:59:21Z"
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/daily-congressional-record/171/1?format=json"
+        },
+        "volumeNumber": {
+          "type": "integer",
+          "example": 171
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteeCommunication",
+  "title": "CommitteeCommunication",
+  "type": "object",
+  "properties": {
+    "communicationType": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "EC"
+        },
+        "name": {
+          "type": "string",
+          "example": "Executive Communication"
+        }
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 114
+    },
+    "number": {
+      "type": "integer",
+      "example": 3262
+    },
+    "referralDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2015-10-27"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2018-02-02"
+    }
+  }
+}

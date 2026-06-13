@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/committeeReport",
+  "title": "committeeReport",
+  "type": "object",
+  "properties": {
+    "citation": {
+      "type": "string",
+      "example": "H. Rept. 118-400"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee-report/118/HRPT/400?format=json"
+    }
+  }
+}

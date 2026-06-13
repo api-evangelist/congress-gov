@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/LawNumber",
+  "title": "LawNumber",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/law/118/hr/4984/actions?format=json"
+        }
+      }
+    },
+    "cboCostEstimates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/cboCost"
+      }
+    },
+    "committeeReports": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/committeeReport"
+      }
+    },
+    "committees": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/law/118/hr/4984/committees?format=json"
+        }
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 118
+    },
+    "constitutionalAuthorityStatementText": {
+      "type": "string",
+      "example": "<pre>\n[Congressional Record Volume 169, Number 130 (Thursday, July 27, 2023)]\n[House]\n[Pages H4143-H4144]\nFrom the Congressional Record Online through the Government Publishing Office [<a href=\"https://www.gpo.gov\">www.gpo.gov</a>]\nBy Mr. COMER:\nH.R. 4984.\nCongress has the power to enact this legislation pursuant\nto the following:\nArticle I, Section 8, Clause 17 of the U.S. Constitution,\nin that the legislation ``to exercise exclusive Legislation\nin all Cases\n[[Page H4144]]\nwhatsoever, over such District (not exceeding ten Miles\nsquare) as may, by Cession of particular States, and the\nAcceptance of Congress, become the Seat of the Government of\nthe United States, and to exercise like Authority over all\nPlaces purchased by the Consent of the Legislature of the\nState in which the Same shall be, for the Erection of Forts,\nMagazines, Arsenals, dock-Yards, and other needful\nBuildings.''\nThe single subject of this legislation is:\nTo transfer administrative jurisdiction of the District of\nColumbia RFK Memorial Stadium campus from the Secretary of\nthe Interior to the Administrator of General Services and\nauthorize a new lease with D.C. for redevelopment.\n</pre>"
+    },
+    "cosponsors": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 21
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/law/118/hr/4984/cosponsors?format=json"
+        }
+      }
+    },
+    "introducedDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-07-27"
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2025-01-06"
+        },
+        "text": {
+          "type": "string",
+          "example": "Became Public Law No: 118-274."
+        }
+      }
+    },
+    "laws": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/laws"
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": "4984"
+    },
+    "originChamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "originChamberCode": {
+      "type": "string",
+      "example": "H"
+    },
+    "policyArea": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Government Operations and Politics"
+        }
+      }
+    },
+    "sponsors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sponsor"
+      }
+    },
+    "subjects": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 11
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/bill/118/hr/4984/subjects?format=json"
+        }
+      }
+    },
+    "summaries": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 5
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/bill/118/hr/4984/summaries?format=json"
+        }
+      }
+    },
+    "textVersions": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 6
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/bill/118/hr/4984/textversions?format=json"
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "example": "D.C. Robert F. Kennedy Memorial Stadium Campus Revitalization Act"
+    },
+    "titles": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 9
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/bill/118/hr/4984/titles?format=json"
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "example": "HR"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-05-27T14:16:54Z"
+    },
+    "updateDateIncludingText": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-05-27T14:16:54Z"
+    }
+  }
+}

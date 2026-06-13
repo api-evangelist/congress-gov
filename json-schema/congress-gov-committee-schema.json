@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Committee",
+  "title": "Committee",
+  "type": "object",
+  "properties": {
+    "activities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Activity"
+      }
+    },
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "name": {
+      "type": "string",
+      "example": "House Committee on the Judiciary"
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "hsgo00"
+    },
+    "type": {
+      "type": "string",
+      "example": "Standing"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee/house/hsgo00?format=json"
+    }
+  }
+}

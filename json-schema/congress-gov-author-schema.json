@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/author",
+  "title": "author",
+  "type": "object",
+  "properties": {
+    "author": {
+      "type": "string",
+      "example": "Megan S. Lynch"
+    }
+  }
+}

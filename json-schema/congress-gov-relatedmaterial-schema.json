@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/relatedMaterial",
+  "title": "relatedMaterial",
+  "type": "object",
+  "properties": {
+    "URL": {
+      "type": "string",
+      "example": "https://api.congress.gov/v3/law/93/pub/344"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 93
+    },
+    "number": {
+      "type": "string",
+      "example": "93-344"
+    },
+    "title": {
+      "type": "string",
+      "example": "Providing for budget allocations, and for other purposes."
+    },
+    "type": {
+      "type": "string",
+      "example": "PUB"
+    }
+  }
+}

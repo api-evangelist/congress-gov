@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Hearings",
+  "title": "Hearings",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/hearing"
+  }
+}

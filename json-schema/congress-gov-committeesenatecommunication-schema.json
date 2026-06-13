@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteeSenateCommunication",
+  "title": "CommitteeSenateCommunication",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CommitteeCommunication"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "chamber": {
+          "type": "string",
+          "example": "Senate"
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/senate-communication/114/ec/7402?format=json"
+        }
+      }
+    }
+  ]
+}

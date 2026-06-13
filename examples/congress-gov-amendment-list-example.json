@@ -1,0 +1,24 @@
+{
+  "amendments": [
+    {
+      "congress": 118,
+      "description": "An amendment to H.R. 21.",
+      "latestAction": {
+        "actionDate": "2023-01-10",
+        "text": "Amendment offered."
+      },
+      "number": "1",
+      "purpose": "In the nature of a substitute.",
+      "type": "HAMDT",
+      "updateDate": "2023-01-15",
+      "url": "https://api.congress.gov/v3/amendment/118/hamdt/1?format=json"
+    }
+  ],
+  "pagination": {
+    "count": 1
+  },
+  "request": {
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

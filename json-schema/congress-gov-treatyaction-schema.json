@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/treatyAction",
+  "title": "treatyAction",
+  "type": "object",
+  "properties": {
+    "actionCode": {
+      "type": "string",
+      "example": "S05291"
+    },
+    "actionDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-08-03"
+    },
+    "committee": {
+      "$ref": "#/components/schemas/senatecommittee"
+    },
+    "text": {
+      "type": "string",
+      "example": "Resolution of advice and consent to ratification agreed to as amended in Senate by Yea-Nay Vote. 95 - 1. Record Vote Number: 282."
+    },
+    "type": {
+      "type": "string",
+      "example": "Floor"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Law",
+  "title": "Law",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 119
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2025-11-21"
+        },
+        "text": {
+          "type": "string",
+          "example": "Became Public Law No: 119-37."
+        }
+      }
+    },
+    "laws": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/laws"
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": "2808"
+    },
+    "originChamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "originChamberCode": {
+      "type": "string",
+      "example": "H"
+    },
+    "title": {
+      "type": "string",
+      "example": "Homebuyers Privacy Protection Act"
+    },
+    "type": {
+      "type": "string",
+      "example": "HR"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2025-11-21"
+    },
+    "updateDateIncludingText": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-11-21"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/119/hr/2808?format=json"
+    }
+  }
+}

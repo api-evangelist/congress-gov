@@ -1,0 +1,32 @@
+{
+  "nominations": [
+    {
+      "citation": "PN1",
+      "congress": 118,
+      "description": "Nomination of John Smith to be Ambassador.",
+      "isPrivileged": false,
+      "isList": false,
+      "latestAction": {
+        "actionDate": "2023-01-15",
+        "text": "Referred to the Committee on Foreign Relations."
+      },
+      "nominationType": {
+        "isCivilian": true,
+        "isMilitary": false
+      },
+      "number": 1,
+      "organization": "Department of State",
+      "partNumber": "00",
+      "receivedDate": "2023-01-09",
+      "updateDate": "2023-01-20",
+      "url": "https://api.congress.gov/v3/nomination/118/1?format=json"
+    }
+  ],
+  "pagination": {
+    "count": 1
+  },
+  "request": {
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

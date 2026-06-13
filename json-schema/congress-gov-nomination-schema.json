@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Nomination",
+  "title": "Nomination",
+  "type": "object",
+  "properties": {
+    "nomination": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "example": 7
+            },
+            "url": {
+              "type": "string",
+              "format": "url",
+              "example": "https://api.congress.gov/v3/nomination/118/16/actions?format=json"
+            }
+          }
+        },
+        "authorityDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2025-10-21"
+        },
+        "citation": {
+          "type": "string",
+          "example": "PN16"
+        },
+        "committees": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "example": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "url",
+              "example": "https://api.congress.gov/v3/nomination/118/16/committees?format=json"
+            }
+          }
+        },
+        "congress": {
+          "type": "integer",
+          "example": 118
+        },
+        "description": {
+          "type": "string",
+          "example": "Daniel B. Maffei, of New York, to be a Federal Maritime Commissioner for a term expiring June 30, 2027.  (Reappointment)"
+        },
+        "hearings": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "example": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "url",
+              "example": "https://api.congress.gov/v3/nomination/118/16/hearings?format=json"
+            }
+          }
+        },
+        "latestAction": {
+          "type": "object",
+          "properties": {
+            "actionDate": {
+              "type": "string",
+              "format": "date",
+              "example": "2024-05-14"
+            },
+            "text": {
+              "type": "string",
+              "example": "Confirmed by the Senate by Voice Vote."
+            }
+          }
+        },
+        "nominationType": {
+          "$ref": "#/components/schemas/nominationType"
+        },
+        "nominees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/nominee"
+          }
+        },
+        "number": {
+          "type": "integer",
+          "example": 16
+        },
+        "partNumber": {
+          "type": "string",
+          "example": "00"
+        },
+        "receivedDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2023-01-03"
+        },
+        "updateDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2025-10-22T15:58:44Z"
+        }
+      }
+    }
+  }
+}

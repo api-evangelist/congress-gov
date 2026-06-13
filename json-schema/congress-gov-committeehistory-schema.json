@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/committeeHistory",
+  "title": "committeeHistory",
+  "type": "object",
+  "properties": {
+    "libraryOfCongressName": {
+      "type": "string",
+      "example": "Transportation and Infrastructure"
+    },
+    "officialName": {
+      "type": "string",
+      "example": "Committee on Transportation and Infrastructure"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "1995-01-04T05:00:00Z"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-02-04T00:07:37Z"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-03-04T05:00:00Z"
+    }
+  }
+}

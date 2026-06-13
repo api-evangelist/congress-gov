@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Sponsor",
+  "title": "Sponsor",
+  "type": "object",
+  "properties": {
+    "bioguideId": {
+      "type": "string",
+      "example": "G000555"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Bill"
+    },
+    "lastName": {
+      "type": "string",
+      "example": "Washington"
+    },
+    "fullName": {
+      "type": "string",
+      "example": "Senator Bill Washington [I-NY]"
+    },
+    "isByRequest": {
+      "type": "string",
+      "example": "N"
+    },
+    "middleName": {
+      "type": "string",
+      "example": "J."
+    },
+    "party": {
+      "type": "string",
+      "example": "I"
+    },
+    "state": {
+      "type": "string",
+      "example": "VA"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/member/G000555?format=json"
+    }
+  }
+}

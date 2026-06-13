@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/houseCommunication",
+  "title": "houseCommunication",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "communicationType": {
+      "$ref": "#/components/schemas/communicationType"
+    },
+    "congressNumber": {
+      "type": "integer",
+      "example": 117
+    },
+    "number": {
+      "type": "string",
+      "example": "2057"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2021-09-01"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/house-communication/117/ec/2057?format=json"
+    }
+  }
+}

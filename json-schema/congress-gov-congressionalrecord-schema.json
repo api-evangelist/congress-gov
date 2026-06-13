@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CongressionalRecord",
+  "title": "CongressionalRecord",
+  "type": "object",
+  "properties": {
+    "IndexStart": {
+      "type": "integer",
+      "example": 1
+    },
+    "Issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/issues"
+      }
+    }
+  }
+}

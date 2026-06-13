@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/voteParty",
+  "title": "voteParty",
+  "type": "object",
+  "properties": {
+    "nayTotal": {
+      "type": "integer",
+      "example": 0
+    },
+    "notVotingTotal": {
+      "type": "integer",
+      "example": 6
+    },
+    "presentTotal": {
+      "type": "integer",
+      "example": 0
+    },
+    "voteParty": {
+      "type": "string",
+      "example": "R"
+    },
+    "yeaTotal": {
+      "type": "integer",
+      "example": 213
+    },
+    "party": {
+      "$ref": "#/components/schemas/party"
+    }
+  }
+}

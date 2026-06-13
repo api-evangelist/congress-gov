@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/article",
+  "title": "article",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Daily Digest"
+    },
+    "sectionArticles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/sectionArticle"
+      }
+    }
+  }
+}

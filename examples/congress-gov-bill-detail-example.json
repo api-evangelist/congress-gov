@@ -1,0 +1,73 @@
+{
+  "bill": {
+    "actions": {
+      "count": 5,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/actions?format=json"
+    },
+    "amendments": {
+      "count": 0,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/amendments?format=json"
+    },
+    "cboCostEstimates": [],
+    "committeeReports": [],
+    "committees": {
+      "count": 1,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/committees?format=json"
+    },
+    "congress": 118,
+    "constitutionalAuthorityStatementText": "<pre>...</pre>",
+    "cosponsors": {
+      "count": 0,
+      "countIncludingWithdrawnCosponsors": 0,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/cosponsors?format=json"
+    },
+    "introducedDate": "2023-01-09",
+    "latestAction": {
+      "actionDate": "2023-01-09",
+      "text": "Referred to the House Committee on Ways and Means."
+    },
+    "laws": [],
+    "number": "21",
+    "originChamber": "House",
+    "policyArea": {
+      "name": "Taxation"
+    },
+    "sponsors": [
+      {
+        "bioguideId": "S000250",
+        "district": 32,
+        "firstName": "Pete",
+        "fullName": "Rep. Sessions, Pete [R-TX-32]",
+        "isByRequest": "N",
+        "lastName": "Sessions",
+        "party": "R",
+        "state": "TX",
+        "url": "https://api.congress.gov/v3/member/S000250?format=json"
+      }
+    ],
+    "summaries": {
+      "count": 0,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/summaries?format=json"
+    },
+    "textVersions": {
+      "count": 1,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/text?format=json"
+    },
+    "title": "To amend the Internal Revenue Code of 1986.",
+    "titles": {
+      "count": 1,
+      "url": "https://api.congress.gov/v3/bill/118/hr/21/titles?format=json"
+    },
+    "type": "HR",
+    "updateDate": "2023-01-14",
+    "updateDateIncludingText": "2023-01-14"
+  },
+  "request": {
+    "billNumber": "21",
+    "billType": "hr",
+    "billUrl": "https://api.congress.gov/v3/bill/118/hr/21?format=json",
+    "congress": "118",
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

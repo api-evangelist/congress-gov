@@ -1,0 +1,21 @@
+{
+  "committees": [
+    {
+      "chamber": "House",
+      "committeeTypeCode": "Standing",
+      "name": "Ways and Means Committee",
+      "parent": null,
+      "subcommittees": [],
+      "systemCode": "hswm00",
+      "updateDate": "2023-01-10",
+      "url": "https://api.congress.gov/v3/committee/house/hswm00?format=json"
+    }
+  ],
+  "pagination": {
+    "count": 1
+  },
+  "request": {
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

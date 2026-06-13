@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/subcommittees",
+  "title": "subcommittees",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Investigations and Oversight Subcommittee"
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "hspw01"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee/house/hspw01?format=json"
+    }
+  }
+}

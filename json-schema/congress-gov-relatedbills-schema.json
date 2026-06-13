@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/RelatedBills",
+  "title": "RelatedBills",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "lastestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2019-01-01"
+        },
+        "text": {
+          "type": "string",
+          "example": "On agreeing to the Maloney, Carolyn B. amendment (A002) Agreed to by voice vote. "
+        }
+      }
+    },
+    "number": {
+      "type": "integer",
+      "example": 1720
+    },
+    "relationshipDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/relationshipDetails"
+      }
+    }
+  }
+}

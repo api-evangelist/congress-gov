@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/NominationCommittees",
+  "title": "NominationCommittees",
+  "type": "object",
+  "properties": {
+    "committees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/nominationCommittee"
+      }
+    }
+  }
+}

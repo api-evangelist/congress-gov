@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/TreatyDetail",
+  "title": "TreatyDetail",
+  "type": "object",
+  "properties": {
+    "treaty": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "example": 3
+            },
+            "url": {
+              "type": "string",
+              "format": "url",
+              "example": "https://api.congress.gov/v3/treaty/89/7/actions?format=json"
+            }
+          }
+        },
+        "congressConsidered": {
+          "type": "integer",
+          "example": 89
+        },
+        "congressReceived": {
+          "type": "integer",
+          "example": 89
+        },
+        "countriesParties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Belgium"
+              }
+            }
+          }
+        },
+        "inForceDate": {
+          "type": "string",
+          "example": ""
+        },
+        "indexTerms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "ENGLISH"
+              }
+            }
+          }
+        },
+        "number": {
+          "type": "integer",
+          "example": 7
+        },
+        "oldNumber": {
+          "type": "string",
+          "example": "G. 89-1"
+        },
+        "oldNumberDisplayName": {
+          "type": "string",
+          "example": "Ex. G, 89th Congress, 1st Session"
+        },
+        "parts": {
+          "type": "object"
+        },
+        "relatedDocs": {
+          "type": "array"
+        },
+        "resolutionText": {
+          "type": "string",
+          "example": ""
+        },
+        "suffix": {
+          "type": "string",
+          "example": ""
+        },
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "example": "PROTOCOL MODIFYING CONVENTION WITH BELGIUM FOR THE AVOIDANCE OF DOUBLE TAXATION"
+              },
+              "titleType": {
+                "type": "string",
+                "example": "Treaty - Short Title"
+              }
+            }
+          }
+        },
+        "topic": {
+          "type": "string",
+          "example": "Taxation"
+        },
+        "transmitted": {
+          "type": "string",
+          "format": "date-time",
+          "example": "1965-08-05T00:00:00Z"
+        },
+        "updateDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2022-02-26T16:25:25Z"
+        }
+      }
+    }
+  }
+}

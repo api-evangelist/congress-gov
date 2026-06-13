@@ -1,0 +1,345 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "congress": "https://api.congress.gov/v3/",
+    "loc": "https://www.loc.gov/",
+
+    "Bill": {
+      "@id": "congress:bill",
+      "@type": "@id"
+    },
+    "billNumber": {
+      "@id": "congress:bill/number",
+      "@type": "xsd:string"
+    },
+    "billType": {
+      "@id": "congress:bill/type",
+      "@type": "xsd:string"
+    },
+    "congress": {
+      "@id": "congress:congress",
+      "@type": "xsd:integer"
+    },
+    "originChamber": {
+      "@id": "congress:bill/originChamber",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "schema:name"
+    },
+    "introducedDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "updateDate": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:date"
+    },
+    "sponsors": {
+      "@id": "congress:bill/sponsors",
+      "@container": "@set"
+    },
+    "cosponsors": {
+      "@id": "congress:bill/cosponsors",
+      "@container": "@set"
+    },
+    "latestAction": {
+      "@id": "congress:bill/latestAction"
+    },
+    "actionDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "text": {
+      "@id": "schema:text"
+    },
+    "policyArea": {
+      "@id": "congress:bill/policyArea"
+    },
+    "legislativeSubjects": {
+      "@id": "congress:bill/subjects/legislativeSubjects",
+      "@container": "@set"
+    },
+
+    "Member": {
+      "@id": "congress:member",
+      "@type": "@id"
+    },
+    "bioguideId": {
+      "@id": "congress:member/bioguideId",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "schema:givenName"
+    },
+    "lastName": {
+      "@id": "schema:familyName"
+    },
+    "fullName": {
+      "@id": "schema:name"
+    },
+    "party": {
+      "@id": "congress:member/party"
+    },
+    "partyName": {
+      "@id": "congress:member/partyName"
+    },
+    "state": {
+      "@id": "congress:member/state"
+    },
+    "district": {
+      "@id": "congress:member/district",
+      "@type": "xsd:integer"
+    },
+    "terms": {
+      "@id": "congress:member/terms",
+      "@container": "@set"
+    },
+
+    "Amendment": {
+      "@id": "congress:amendment",
+      "@type": "@id"
+    },
+    "amendmentNumber": {
+      "@id": "congress:amendment/number",
+      "@type": "xsd:string"
+    },
+    "amendmentType": {
+      "@id": "congress:amendment/type"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "purpose": {
+      "@id": "congress:amendment/purpose"
+    },
+    "amendedBill": {
+      "@id": "congress:amendment/amendedBill"
+    },
+
+    "Committee": {
+      "@id": "congress:committee",
+      "@type": "@id"
+    },
+    "systemCode": {
+      "@id": "congress:committee/systemCode"
+    },
+    "chamber": {
+      "@id": "congress:committee/chamber"
+    },
+    "committeeTypeCode": {
+      "@id": "congress:committee/committeeTypeCode"
+    },
+    "subcommittees": {
+      "@id": "congress:committee/subcommittees",
+      "@container": "@set"
+    },
+
+    "CommitteeReport": {
+      "@id": "congress:committee-report",
+      "@type": "@id"
+    },
+    "citation": {
+      "@id": "congress:committee-report/citation"
+    },
+    "reportType": {
+      "@id": "congress:committee-report/type"
+    },
+
+    "Nomination": {
+      "@id": "congress:nomination",
+      "@type": "@id"
+    },
+    "nominationNumber": {
+      "@id": "congress:nomination/number",
+      "@type": "xsd:integer"
+    },
+    "organization": {
+      "@id": "schema:Organization"
+    },
+    "receivedDate": {
+      "@id": "schema:dateReceived",
+      "@type": "xsd:date"
+    },
+    "nominationType": {
+      "@id": "congress:nomination/nominationType"
+    },
+    "nominees": {
+      "@id": "congress:nomination/nominees",
+      "@container": "@set"
+    },
+
+    "Treaty": {
+      "@id": "congress:treaty",
+      "@type": "@id"
+    },
+    "treatyNum": {
+      "@id": "congress:treaty/treatyNum"
+    },
+    "topic": {
+      "@id": "schema:about"
+    },
+    "countriesAffectedList": {
+      "@id": "congress:treaty/countriesAffectedList"
+    },
+    "transmittedDate": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "congressReceived": {
+      "@id": "congress:treaty/congressReceived",
+      "@type": "xsd:integer"
+    },
+
+    "CongressionalRecord": {
+      "@id": "congress:congressional-record",
+      "@type": "@id"
+    },
+    "DailyCongressionalRecord": {
+      "@id": "congress:daily-congressional-record",
+      "@type": "@id"
+    },
+    "BoundCongressionalRecord": {
+      "@id": "congress:bound-congressional-record",
+      "@type": "@id"
+    },
+    "volumeNumber": {
+      "@id": "congress:congressional-record/volumeNumber",
+      "@type": "xsd:integer"
+    },
+    "issueNumber": {
+      "@id": "congress:congressional-record/issueNumber"
+    },
+    "publishDate": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "sessionNumber": {
+      "@id": "congress:congressional-record/sessionNumber",
+      "@type": "xsd:integer"
+    },
+
+    "CrsReport": {
+      "@id": "congress:crsreport",
+      "@type": "@id"
+    },
+    "authors": {
+      "@id": "schema:author",
+      "@container": "@set"
+    },
+    "formats": {
+      "@id": "congress:crsreport/formats",
+      "@container": "@set"
+    },
+    "relatedMaterials": {
+      "@id": "congress:crsreport/relatedMaterials",
+      "@container": "@set"
+    },
+
+    "HouseVote": {
+      "@id": "congress:house-vote",
+      "@type": "@id"
+    },
+    "rollCallNumber": {
+      "@id": "congress:house-vote/rollCallNumber",
+      "@type": "xsd:integer"
+    },
+    "voteDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "question": {
+      "@id": "congress:house-vote/question"
+    },
+    "result": {
+      "@id": "congress:house-vote/result"
+    },
+    "totalYeas": {
+      "@id": "congress:house-vote/totalYeas",
+      "@type": "xsd:integer"
+    },
+    "totalNays": {
+      "@id": "congress:house-vote/totalNays",
+      "@type": "xsd:integer"
+    },
+
+    "HouseCommunication": {
+      "@id": "congress:house-communication",
+      "@type": "@id"
+    },
+    "SenateCommunication": {
+      "@id": "congress:senate-communication",
+      "@type": "@id"
+    },
+    "communicationType": {
+      "@id": "congress:communication/type"
+    },
+
+    "Hearing": {
+      "@id": "congress:hearing",
+      "@type": "@id"
+    },
+    "hearingNumber": {
+      "@id": "congress:hearing/number"
+    },
+    "witnesses": {
+      "@id": "congress:hearing/witnesses",
+      "@container": "@set"
+    },
+
+    "CommitteeMeeting": {
+      "@id": "congress:committee-meeting",
+      "@type": "@id"
+    },
+    "meetingId": {
+      "@id": "congress:committee-meeting/eventId"
+    },
+    "meetingType": {
+      "@id": "congress:committee-meeting/type"
+    },
+    "meetingDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+
+    "CommitteePrint": {
+      "@id": "congress:committee-print",
+      "@type": "@id"
+    },
+
+    "pagination": {
+      "@id": "congress:pagination"
+    },
+    "count": {
+      "@id": "congress:pagination/count",
+      "@type": "xsd:integer"
+    },
+    "next": {
+      "@id": "congress:pagination/next",
+      "@type": "@id"
+    },
+    "prev": {
+      "@id": "congress:pagination/prev",
+      "@type": "@id"
+    },
+
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "format": {
+      "@id": "schema:encodingFormat"
+    },
+    "isByRequest": {
+      "@id": "congress:bill/isByRequest"
+    },
+    "number": {
+      "@id": "congress:resource/number"
+    },
+    "name": {
+      "@id": "schema:name"
+    }
+  }
+}

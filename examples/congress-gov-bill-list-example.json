@@ -1,0 +1,26 @@
+{
+  "bills": [
+    {
+      "congress": 118,
+      "latestAction": {
+        "actionDate": "2023-01-09",
+        "text": "Referred to the House Committee on Ways and Means."
+      },
+      "number": "21",
+      "originChamber": "House",
+      "originChamberCode": "H",
+      "title": "To amend the Internal Revenue Code of 1986.",
+      "type": "HR",
+      "updateDate": "2023-01-14",
+      "url": "https://api.congress.gov/v3/bill/118/hr/21?format=json"
+    }
+  ],
+  "pagination": {
+    "count": 1,
+    "next": "https://api.congress.gov/v3/bill?offset=20&limit=20&format=json"
+  },
+  "request": {
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

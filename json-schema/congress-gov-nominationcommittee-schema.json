@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/nominationCommittee",
+  "title": "nominationCommittee",
+  "type": "object",
+  "properties": {
+    "activities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Activity"
+      }
+    },
+    "chamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "name": {
+      "type": "string",
+      "example": "Judiciary Committee"
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "ssju00"
+    },
+    "type": {
+      "type": "string",
+      "example": "Standing"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee/senate/ssju00?format=json"
+    }
+  }
+}

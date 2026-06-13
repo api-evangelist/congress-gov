@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/nominationType",
+  "title": "nominationType",
+  "type": "object",
+  "properties": {
+    "isCivilian": {
+      "type": "boolean",
+      "example": false
+    },
+    "isMilitary": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

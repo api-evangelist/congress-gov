@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/summaryBill",
+  "title": "summaryBill",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "number": {
+      "type": "string",
+      "example": 1234
+    },
+    "originChamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "originChamberCode": {
+      "type": "string",
+      "example": "S"
+    },
+    "title": {
+      "type": "string",
+      "example": "Pay Our Capitol Police Act"
+    },
+    "type": {
+      "type": "string",
+      "example": "HR"
+    },
+    "updateDateIncludingText": {
+      "type": "string",
+      "format": "date",
+      "example": "2021-08-08"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/117/hr/1234?format=json"
+    }
+  }
+}

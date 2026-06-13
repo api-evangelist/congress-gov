@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/sourceSystem",
+  "title": "sourceSystem",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "example": 0
+    },
+    "name": {
+      "type": "string",
+      "example": "Senate"
+    }
+  }
+}

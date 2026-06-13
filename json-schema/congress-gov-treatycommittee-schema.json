@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/treatyCommittee",
+  "title": "treatyCommittee",
+  "type": "object",
+  "properties": {
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "1965-10-19T04:00:00Z"
+          },
+          "name": {
+            "type": "string",
+            "example": "Reported By"
+          }
+        }
+      }
+    },
+    "chamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "name": {
+      "type": "string",
+      "example": "Foreign Relations Committee"
+    },
+    "subcommittees": {
+      "type": "array"
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "ssfr00"
+    },
+    "type": {
+      "type": "string",
+      "example": "Standing"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://api.congress.gov/v3/committee/senate/ssfr00?format=json"
+    }
+  }
+}

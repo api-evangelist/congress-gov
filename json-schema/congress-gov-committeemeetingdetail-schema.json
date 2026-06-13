@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteeMeetingDetail",
+  "title": "CommitteeMeetingDetail",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "committees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/subcommittees"
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-01T04:44:57Z"
+    },
+    "eventid": {
+      "type": "string",
+      "example": "115538"
+    },
+    "hearingTranscript": {
+      "type": "array"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "building": {
+          "type": "string",
+          "example": "Longworth House Office Building"
+        },
+        "room": {
+          "type": "string",
+          "example": "1234"
+        }
+      }
+    },
+    "meetingDocuments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/meetingdocument"
+      }
+    },
+    "meetingStatus": {
+      "type": "string",
+      "example": "Scheduled"
+    },
+    "relatedItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/relatedItem"
+      }
+    },
+    "title": {
+      "type": "string",
+      "example": "Legislative hearing on: \u2022\tH.R. 1246 (Rep. Hageman), To authorize leases of up to 99 years for land held in trust for federally recognized Indian tribes; and\r\n\u2022\tH.R. 1532 (Rep. Hageman), To authorize any Indian Tribe to lease, sell, convey, warrant, or otherwise transfer real property to which that Indian Tribe holds fee title without the consent of the Federal Government, and for other purposes."
+    },
+    "type": {
+      "type": "string",
+      "example": "Hearing"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-01T04:44:57Z"
+    },
+    "videos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/video"
+      }
+    },
+    "witnessDocuments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/witnessDocument"
+      }
+    },
+    "witnesses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/witness"
+      }
+    }
+  }
+}

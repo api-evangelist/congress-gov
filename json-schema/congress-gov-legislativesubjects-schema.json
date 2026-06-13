@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/legislativeSubjects",
+  "title": "legislativeSubjects",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Congressional oversight"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    }
+  }
+}

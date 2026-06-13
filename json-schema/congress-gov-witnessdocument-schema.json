@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/witnessDocument",
+  "title": "witnessDocument",
+  "type": "object",
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "example": "Witness Statement"
+    },
+    "format": {
+      "type": "string",
+      "example": "PDF"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.congress.gov/118/meeting/house/115538/witnesses/HHRG-118-II24-Wstate-NewlandB-20230324.pdf"
+    }
+  }
+}

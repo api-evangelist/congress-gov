@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/format",
+  "title": "format",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "example": "PDF"
+    }
+  },
+  "url": {
+    "type": "string",
+    "format": "url",
+    "example": "https://www.congress.gov/crs_external_products/R/PDF/R47175/R47175.1.pdf"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/titlesArray",
+  "title": "titlesArray",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "example": "A bill to amend the Health and Human Services Act of 1968 to provide for the establishment of a national health care system."
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "titleType": {
+      "type": "string",
+      "example": "Display Title"
+    },
+    "titleTypeCode": {
+      "type": "integer",
+      "example": 45
+    },
+    "billTextVersionCode": {
+      "type": "string",
+      "example": "RH"
+    },
+    "billTextVersionName": {
+      "type": "string",
+      "example": "Reported in House"
+    }
+  }
+}

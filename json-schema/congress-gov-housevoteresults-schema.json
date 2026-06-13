@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/houseVoteResults",
+  "title": "houseVoteResults",
+  "type": "object",
+  "properties": {
+    "bioguideID": {
+      "type": "string",
+      "example": "A000055"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Robert"
+    },
+    "lastName": {
+      "type": "string",
+      "example": "Aderholt"
+    },
+    "voteCast": {
+      "type": "string",
+      "example": "Yea"
+    },
+    "voteParty": {
+      "type": "string",
+      "example": "R"
+    },
+    "voteState": {
+      "type": "string",
+      "example": "AL"
+    }
+  }
+}

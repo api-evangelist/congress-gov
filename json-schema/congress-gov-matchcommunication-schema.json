@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/matchCommunication",
+  "title": "matchCommunication",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "example": 90774
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/house-requirement/8070/matching-communications?format=json"
+    }
+  }
+}

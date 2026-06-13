@@ -1,0 +1,291 @@
+vocabulary:
+  name: Congress.gov API Vocabulary
+  description: >
+    Domain vocabulary for the Congress.gov REST API, covering US legislative
+    data including bills, amendments, members, committees, nominations,
+    treaties, Congressional Record, and CRS reports.
+  url: https://api.congress.gov/
+  version: "3"
+
+concepts:
+  - term: bill
+    label: Bill
+    description: >
+      A proposed law introduced in the House or Senate. Bills are assigned a
+      congress number, chamber of origin, bill type (e.g., HR, S), and a bill
+      number. Bills progress through committee review, floor debate, votes, and
+      presidential action before becoming law.
+    relatedTerms:
+      - law
+      - amendment
+      - sponsor
+      - cosponsor
+
+  - term: law
+    label: Law
+    description: >
+      A bill or joint resolution that has been enacted into law. Laws are
+      identified by congress number, law type (public or private), and a law
+      number.
+    relatedTerms:
+      - bill
+      - publicLaw
+      - privateLaw
+
+  - term: amendment
+    label: Amendment
+    description: >
+      A proposed change to a pending bill, resolution, or other measure. An
+      amendment may be proposed in either chamber and can alter the text, title,
+      or other components of the original measure.
+    relatedTerms:
+      - bill
+      - amendmentType
+
+  - term: member
+    label: Member of Congress
+    description: >
+      A Senator or Representative serving in the United States Congress.
+      Members are identified by a bioguide ID, name, party, state, and
+      congressional district (for House members).
+    relatedTerms:
+      - sponsor
+      - cosponsor
+      - bioguideId
+
+  - term: committee
+    label: Committee
+    description: >
+      A standing, select, or joint committee of the House or Senate. Committees
+      review legislation, conduct oversight, and hold hearings. Each committee
+      is identified by a system code and chamber.
+    relatedTerms:
+      - subcommittee
+      - committeePrint
+      - hearing
+      - committeeMeeting
+
+  - term: committeeReport
+    label: Committee Report
+    description: >
+      A formal document issued by a congressional committee explaining the
+      purpose and scope of a bill or resolution and recommending its
+      consideration by the full chamber.
+    relatedTerms:
+      - committee
+      - bill
+
+  - term: committeeprint
+    label: Committee Print
+    description: >
+      A document prepared by committee staff for use by the committee, often
+      containing analysis, draft legislation, or background information.
+    relatedTerms:
+      - committee
+
+  - term: committeeMeeting
+    label: Committee Meeting
+    description: >
+      A formally scheduled meeting of a congressional committee or subcommittee,
+      including hearings, markups, and business meetings.
+    relatedTerms:
+      - committee
+      - hearing
+
+  - term: hearing
+    label: Hearing
+    description: >
+      A formal proceeding of a congressional committee to collect testimony
+      from witnesses, including government officials, experts, and citizens,
+      on a topic of legislative interest.
+    relatedTerms:
+      - committee
+      - witness
+
+  - term: nomination
+    label: Nomination
+    description: >
+      A presidential nomination of an individual for a civilian or military
+      position requiring Senate confirmation. Nominations are assigned a
+      congress number and nomination number.
+    relatedTerms:
+      - nominee
+      - senateConfirmation
+
+  - term: treaty
+    label: Treaty
+    description: >
+      An international agreement submitted by the President to the Senate for
+      ratification. Treaties are identified by a congress number and treaty
+      number.
+    relatedTerms:
+      - treatyAction
+      - ratification
+
+  - term: congressionalRecord
+    label: Congressional Record
+    description: >
+      The official daily record of the proceedings and debates of the United
+      States Congress, published by the Government Publishing Office.
+    relatedTerms:
+      - dailyCongressionalRecord
+      - boundCongressionalRecord
+
+  - term: crsReport
+    label: CRS Report
+    description: >
+      A report prepared by the Congressional Research Service (CRS) providing
+      nonpartisan analysis, research, and information on legislative issues
+      for members of Congress.
+    relatedTerms:
+      - congress
+      - policy
+
+  - term: congress
+    label: Congress
+    description: >
+      A numbered two-year period of the United States Congress. The 118th
+      Congress began January 3, 2023. Each congress includes two sessions.
+    relatedTerms:
+      - session
+      - member
+
+  - term: bioguideId
+    label: Bioguide ID
+    description: >
+      A unique identifier assigned to each Member of Congress in the
+      Biographical Directory of the United States Congress (bioguide.congress.gov).
+    relatedTerms:
+      - member
+
+  - term: sponsor
+    label: Sponsor
+    description: >
+      The member of Congress who introduces or formally proposes a bill,
+      resolution, or amendment.
+    relatedTerms:
+      - bill
+      - member
+
+  - term: cosponsor
+    label: Cosponsor
+    description: >
+      A member of Congress who formally joins another member in sponsoring a
+      bill or resolution.
+    relatedTerms:
+      - bill
+      - member
+
+  - term: houseCommunication
+    label: House Communication
+    description: >
+      An official communication from the President, executive agencies, or
+      other entities addressed to the House of Representatives.
+    relatedTerms:
+      - communicationType
+      - houseRequirement
+
+  - term: senateCommunication
+    label: Senate Communication
+    description: >
+      An official communication from the President, executive agencies, or
+      other entities addressed to the Senate.
+    relatedTerms:
+      - communicationType
+
+  - term: houseRequirement
+    label: House Requirement
+    description: >
+      A statutory requirement for the executive branch to submit periodic
+      reports to the House of Representatives.
+    relatedTerms:
+      - houseCommunication
+
+  - term: summaries
+    label: Bill Summary
+    description: >
+      A brief written summary of a bill's content, prepared by the
+      Congressional Research Service (CRS) at various stages of the
+      legislative process.
+    relatedTerms:
+      - bill
+      - crsReport
+
+  - term: houseVote
+    label: House Roll Call Vote
+    description: >
+      A recorded vote of the House of Representatives on a bill, amendment,
+      procedural matter, or other question.
+    relatedTerms:
+      - member
+      - bill
+
+  - term: policyArea
+    label: Policy Area
+    description: >
+      A broad subject category assigned to a bill by the Congressional Research
+      Service, such as Taxation, Health, or Armed Forces and National Security.
+    relatedTerms:
+      - legislativeSubjects
+      - bill
+
+  - term: legislativeSubjects
+    label: Legislative Subjects
+    description: >
+      Specific subject terms assigned to bills by the Congressional Research
+      Service to describe the topics covered in the legislation.
+    relatedTerms:
+      - policyArea
+      - bill
+
+resourceTypes:
+  - id: bill
+    endpoints:
+      - /bill
+      - /bill/{congress}
+      - /bill/{congress}/{billType}
+      - /bill/{congress}/{billType}/{billNumber}
+
+  - id: amendment
+    endpoints:
+      - /amendment
+      - /amendment/{congress}
+      - /amendment/{congress}/{amendmentType}
+      - /amendment/{congress}/{amendmentType}/{amendmentNumber}
+
+  - id: member
+    endpoints:
+      - /member
+      - /member/{bioguideId}
+
+  - id: committee
+    endpoints:
+      - /committee
+      - /committee/{chamber}
+      - /committee/{chamber}/{committeeCode}
+
+  - id: nomination
+    endpoints:
+      - /nomination
+      - /nomination/{congress}
+      - /nomination/{congress}/{nominationNumber}
+
+  - id: treaty
+    endpoints:
+      - /treaty
+      - /treaty/{congress}
+      - /treaty/{congress}/{treatyNumber}
+
+  - id: congressional-record
+    endpoints:
+      - /congressional-record
+      - /daily-congressional-record
+      - /bound-congressional-record
+
+  - id: crsreport
+    endpoints:
+      - /crsreport
+
+  - id: house-vote
+    endpoints:
+      - /house-vote/{congress}/{sessionNumber}/{rollCallNumber}

@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/issues",
+  "title": "issues",
+  "type": "object",
+  "properties": {
+    "Congress": {
+      "type": "string",
+      "example": "117"
+    },
+    "Id": {
+      "type": "integer",
+      "example": 26958
+    },
+    "Issue": {
+      "type": "string",
+      "example": "109"
+    },
+    "Links": {
+      "type": "object",
+      "properties": {
+        "Digest": {
+          "type": "object",
+          "properties": {
+            "Label": {
+              "type": "string",
+              "example": "Daily Digest"
+            },
+            "Ordinal": {
+              "type": "integer",
+              "example": 1
+            },
+            "PDF": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Part": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "format": "url",
+                    "example": "https://www.congress.gov/117/crec/2022/06/28/168/109/CREC-2022-06-28-dailydigest.pdf"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "FullRecord": {
+          "type": "object",
+          "properties": {
+            "Label": {
+              "type": "string",
+              "example": "Entire Issue"
+            },
+            "Ordinal": {
+              "type": "integer",
+              "example": 5
+            },
+            "PDF": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Part": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "format": "url",
+                    "example": "https://www.congress.gov/117/crec/2022/06/28/168/109/CREC-2022-06-28.pdf"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "House": {
+          "type": "object",
+          "properties": {
+            "Label": {
+              "type": "string",
+              "example": "House Section"
+            },
+            "Ordinal": {
+              "type": "integer",
+              "example": 3
+            },
+            "PDF": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Part": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "format": "url",
+                    "example": "https://www.congress.gov/117/crec/2022/06/28/168/109/CREC-2022-06-28-house.pdf"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Remarks": {
+          "type": "object",
+          "properties": {
+            "Label": {
+              "type": "string",
+              "example": "Extensions of Remarks Section"
+            },
+            "Ordinal": {
+              "type": "integer",
+              "example": 4
+            },
+            "PDF": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Part": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "format": "url",
+                    "example": "https://www.congress.gov/117/crec/2022/06/28/168/109/CREC-2022-06-28-extensions.pdf"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Senate": {
+          "type": "object",
+          "properties": {
+            "Label": {
+              "type": "string",
+              "example": "Senate Section"
+            },
+            "Ordinal": {
+              "type": "integer",
+              "example": 2
+            },
+            "PDF": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Part": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "format": "url",
+                    "example": "https://www.congress.gov/117/crec/2022/06/28/168/109/CREC-2022-06-28-senate.pdf"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "PublishDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18"
+    },
+    "Session": {
+      "type": "string",
+      "example": "2"
+    },
+    "Volume": {
+      "type": "string",
+      "example": "168"
+    }
+  }
+}

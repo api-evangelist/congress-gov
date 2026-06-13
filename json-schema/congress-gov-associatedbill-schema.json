@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/associatedBill",
+  "title": "associatedBill",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 116
+    },
+    "number": {
+      "type": "string",
+      "example": "6395"
+    },
+    "type": {
+      "type": "string",
+      "example": "HR"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/116/hr/6395?format=json"
+    }
+  }
+}

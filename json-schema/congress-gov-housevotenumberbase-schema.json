@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/HouseVoteNumberBase",
+  "title": "HouseVoteNumberBase",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 119
+    },
+    "identifier": {
+      "type": "integer",
+      "example": 1191202517
+    },
+    "legislationNumber": {
+      "type": "string",
+      "example": "30"
+    },
+    "legislationType": {
+      "type": "string",
+      "example": "HR"
+    },
+    "legislationUrl": {
+      "type": "string",
+      "format": "url",
+      "example": "https://congress.gov/bill/119/house-bill/30"
+    },
+    "result": {
+      "type": "string",
+      "example": "Passed"
+    },
+    "rollCallNumber": {
+      "type": "integer",
+      "example": 17
+    },
+    "sessionNumber": {
+      "type": "integer",
+      "example": 1
+    },
+    "sourceDataURL": {
+      "type": "string",
+      "example": "https://clerk.house.gov/evs/2025/roll017.xml"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-01-16T11:00:00-05:00"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-04-18T08:44:47-04:00"
+    },
+    "voteType": {
+      "type": "string",
+      "example": "Yea-and-Nay"
+    }
+  }
+}

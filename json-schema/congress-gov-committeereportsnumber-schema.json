@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteeReportsNumber",
+  "title": "CommitteeReportsNumber",
+  "type": "array",
+  "items": {
+    "allOf": [
+      {
+        "$ref": "#/components/schemas/committeeReports"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "associatedBill": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/associatedBill"
+            }
+          },
+          "isConferenceReport": {
+            "type": "boolean",
+            "example": true
+          },
+          "issueDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-12-03T05:00:00Z"
+          },
+          "reportType": {
+            "type": "string",
+            "example": "H.Rept."
+          },
+          "sessionNumber": {
+            "type": "integer",
+            "example": 2
+          },
+          "text": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "example": 2
+              },
+              "url": {
+                "type": "string",
+                "format": "url",
+                "example": "https://api.congress.gov/v3/committee-report/116/hrpt/617/text?format=json"
+              }
+            }
+          },
+          "title": {
+            "type": "string",
+            "example": "WILLIAM M. (MAC) THORNBERRY NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2021"
+          }
+        }
+      }
+    ]
+  }
+}

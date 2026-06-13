@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Amendments",
+  "title": "Amendments",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "description": {
+      "type": "string",
+      "example": "Pursuant to the provisions of H. Res. 912, the amendment in the nature of a substitute consisting of the text of Rules Committee Print 117-32 is considered as adopted."
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2019-01-01"
+        },
+        "text": {
+          "type": "string",
+          "example": "On agreeing to the Maloney, Carolyn B. amendment (A002) Agreed to by voice vote. "
+        }
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": "173"
+    },
+    "type": {
+      "type": "string",
+      "example": "HAMDT"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/amendment/117/hamdt/173?format=json"
+    }
+  }
+}

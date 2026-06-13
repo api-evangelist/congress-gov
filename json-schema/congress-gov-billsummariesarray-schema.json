@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/billSummariesArray",
+  "title": "billSummariesArray",
+  "type": "object",
+  "properties": {
+    "actionDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "actionDesc": {
+      "type": "string",
+      "example": "Passed Senate"
+    },
+    "text": {
+      "type": "string",
+      "example": "<p><strong>COVID-19 Medical Production Act</strong></p> <p>This bill provides additional funding for FY2021 to acquire medical supplies, vaccines, and other equipment to combat COVID-19 (i.e., coronavirus disease 2019) using authorities under the Defense Production Act of 1950. That act confers on the President a broad set of authorities to influence domestic industry to provide essential materials and goods for the national defense.</p> <p>This funding is available through FY2025. Beginning in FY2023, it may be used to meet public health needs to address any pathogen determined by the President to have the potential to create a public health emergency.</p>"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "versionCode": {
+      "type": "string",
+      "example": "173"
+    }
+  }
+}

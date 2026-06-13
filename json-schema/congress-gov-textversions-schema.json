@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/textVersions",
+  "title": "textVersions",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "formats": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/formats"
+      }
+    },
+    "type": {
+      "type": "string",
+      "example": "Enrolled Bill"
+    }
+  }
+}

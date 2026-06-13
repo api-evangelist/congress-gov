@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/HouseVoteMembers",
+  "title": "HouseVoteMembers",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/HouseVoteNumberBase"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/houseVoteResults"
+          }
+        },
+        "voteQuestion": {
+          "type": "string",
+          "example": "On Passage"
+        }
+      }
+    }
+  ]
+}

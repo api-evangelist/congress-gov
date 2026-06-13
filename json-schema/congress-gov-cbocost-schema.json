@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/cboCost",
+  "title": "cboCost",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "example": "As ordered reported by the House Committee on Oversight and Accountability on September 20, 2023\n"
+    },
+    "pubDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-10-10T19:58:00Z"
+    },
+    "title": {
+      "type": "string",
+      "example": "H.R. 4984, D.C. Robert F. Kennedy Memorial Stadium Campus Revitalization Act"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.cbo.gov/publication/59651"
+    }
+  }
+}

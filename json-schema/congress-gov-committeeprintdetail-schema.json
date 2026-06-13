@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteePrintDetail",
+  "title": "CommitteePrintDetail",
+  "type": "object",
+  "properties": {
+    "associatedBills": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/associatedBill"
+      }
+    },
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "citation": {
+      "type": "string",
+      "example": "117-62"
+    },
+    "committees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/committeePrintCommittees"
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "jacketNumber": {
+      "type": "integer",
+      "example": 48144
+    },
+    "text": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 4
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/committee-print/117/house/48144/text?format=json"
+        }
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": "62"
+    },
+    "title": {
+      "type": "string",
+      "example": "RULES COMMITTEE PRINT 117-62 TEXT OF H.R. 5768, VIOLENT INCIDENT CLEAR- ANCE AND TECHNOLOGICAL INVESTIGATIVE METHODS ACT OF 2022"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-01 21:19:33+00:00"
+    }
+  }
+}

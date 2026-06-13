@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Member",
+  "title": "Member",
+  "type": "object",
+  "properties": {
+    "bioguideId": {
+      "type": "string",
+      "example": "L000174"
+    },
+    "birthYear": {
+      "type": "string",
+      "example": "1940"
+    },
+    "cosponsoredLegislation": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "example": "https://api.congress.gov/v3/member/L000174/cosponsored-legislation\""
+        }
+      }
+    },
+    "depiction": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string",
+          "example": "<a href=\"\\&quot;https://www.senate.gov/artandhistory/history/common/generic/Photo_Collection_of_the_Senate_Historical_Office.htm\\&quot;\">Courtesy U.S. Senate Historical Office</a>"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "url",
+          "example": "https://www.congress.gov/img/member/l000174_200.jpg"
+        }
+      }
+    },
+    "directOrderName": {
+      "type": "string",
+      "example": "Patrick J. Leahy"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Patrick"
+    },
+    "honorificName": {
+      "type": "string",
+      "example": "Mr."
+    },
+    "invertedOrderName": {
+      "type": "string",
+      "example": "Leahy, Patrick J."
+    },
+    "lastname": {
+      "type": "string",
+      "example": "Leahy"
+    },
+    "leadership": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/leadership"
+      }
+    },
+    "partyHistory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/partyHistory"
+      }
+    },
+    "sponsoredLegislation": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1768
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/member/L000174/sponsored-legislation"
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "example": "Vermont"
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/memberDetailTerms"
+      }
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-11-07T13:42:19Z"
+    }
+  }
+}

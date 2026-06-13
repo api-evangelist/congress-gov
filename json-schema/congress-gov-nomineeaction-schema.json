@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/nomineeAction",
+  "title": "nomineeAction",
+  "type": "object",
+  "properties": {
+    "actionCode": {
+      "type": "string",
+      "example": "S05120"
+    },
+    "actionDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-08-03"
+    },
+    "committees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/senatecommittee"
+      }
+    },
+    "text": {
+      "type": "string",
+      "example": "Received in the Senate and referred to the Committee on Armed Services"
+    },
+    "type": {
+      "type": "string",
+      "example": "IntroReferral"
+    }
+  }
+}

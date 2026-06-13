@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Members",
+  "title": "Members",
+  "type": "object",
+  "properties": {
+    "bioguideId": {
+      "type": "string",
+      "example": "N000147"
+    },
+    "depiction": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string",
+          "example": "Congressional Pictorial Directory"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "url",
+          "example": "https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg"
+        }
+      }
+    },
+    "name": {
+      "type": "string",
+      "example": "Norton, Eleanor Holmes"
+    },
+    "partyName": {
+      "type": "string",
+      "example": "Democratic"
+    },
+    "state": {
+      "type": "string",
+      "example": "District of Columbia"
+    },
+    "terms": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/memberTerms"
+          }
+        }
+      }
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-11-12T08:45:43Z"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/member/N000147?format=json"
+    }
+  }
+}

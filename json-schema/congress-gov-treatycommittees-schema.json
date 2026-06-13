@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/TreatyCommittees",
+  "title": "TreatyCommittees",
+  "type": "object",
+  "properties": {
+    "treatyCommittees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/treatyCommittee"
+      }
+    }
+  }
+}

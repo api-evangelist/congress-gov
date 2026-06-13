@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/committeePrintCommittees",
+  "title": "committeePrintCommittees",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Rules Committee"
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "hsru00"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee/house/hsru00?format=json"
+    }
+  }
+}

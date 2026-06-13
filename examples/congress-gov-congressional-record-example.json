@@ -1,0 +1,24 @@
+{
+  "Results": {
+    "Issues": {
+      "Item": [
+        {
+          "Id": "2023-01-09",
+          "Links": {
+            "Html": {
+              "Label": "HTML",
+              "Url": "https://www.congress.gov/congressional-record/2023/01/09/senate-section"
+            },
+            "Pdf": {
+              "Label": "PDF",
+              "Url": "https://www.congress.gov/congressional-record/2023/01/09/senate-section.pdf"
+            }
+          },
+          "PublishDate": "2023-01-09",
+          "Session": 1,
+          "VolumeNumber": 169
+        }
+      ]
+    }
+  }
+}

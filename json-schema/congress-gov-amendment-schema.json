@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Amendment",
+  "title": "Amendment",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "description": {
+      "type": "string",
+      "example": "Amendment changes the effective date of the bill to the date of enactment."
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2021-08-08"
+        },
+        "actionTime": {
+          "type": "string",
+          "format": "time",
+          "example": "12:00:00"
+        },
+        "text": {
+          "type": "string",
+          "example": "Amendment SA 2137 agreed to in Senate by Yea-Nay Vote. 69 - 28. Record Vote Number: 312."
+        }
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": "2137"
+    },
+    "purpose": {
+      "type": "string",
+      "example": "In the nature of a substitute."
+    },
+    "type": {
+      "type": "string",
+      "format": "SAMDT"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-08-08T12:00:00Z"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/amendment/117/samdt/2137?format=json"
+    }
+  }
+}

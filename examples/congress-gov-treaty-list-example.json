@@ -1,0 +1,29 @@
+{
+  "treaties": [
+    {
+      "congressConsidered": 117,
+      "congressReceived": 117,
+      "countriesAffectedList": "France",
+      "inForceDate": null,
+      "indexTerms": [],
+      "number": 1,
+      "parts": {
+        "count": 0
+      },
+      "resolutionText": "",
+      "suffix": "",
+      "topic": "Trade",
+      "transmittedDate": "2021-01-20",
+      "treatyNum": "117-1",
+      "updateDate": "2021-02-01",
+      "url": "https://api.congress.gov/v3/treaty/117/1?format=json"
+    }
+  ],
+  "pagination": {
+    "count": 1
+  },
+  "request": {
+    "contentType": "application/json",
+    "format": "json"
+  }
+}

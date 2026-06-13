@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/committeeBill",
+  "title": "committeeBill",
+  "type": "object",
+  "properties": {
+    "actionDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "number": {
+      "type": "string",
+      "example": "117"
+    },
+    "relationshipType": {
+      "type": "string",
+      "example": "Referred to"
+    },
+    "type": {
+      "type": "string",
+      "example": "HCONRES"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-02-18T16:38:41Z"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/112/hconres/117?format=json"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/fullIssue",
+  "title": "fullIssue",
+  "type": "object",
+  "properties": {
+    "articles": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 315
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/daily-congressional-record/171/1/articles?format=json"
+        }
+      }
+    },
+    "entireIssue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "part": {
+            "type": "string",
+            "example": "1"
+          },
+          "type": {
+            "type": "string",
+            "example": "PDF"
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "example": "https://www.congress.gov/119/crec/2025/01/03/171/1/CREC-2025-01-03-v171.pdf"
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "endPage": {
+            "type": "string",
+            "example": "D12"
+          },
+          "name": {
+            "type": "string",
+            "example": "Daily Digest"
+          },
+          "startPage": {
+            "type": "string",
+            "example": "D1"
+          },
+          "text": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "Formatted Text"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "example": "https://www.congress.gov/119/crec/2025/01/03/d03ja5-1.htm"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

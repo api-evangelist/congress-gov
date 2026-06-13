@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/senateCommunication",
+  "title": "senateCommunication",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "communicationType": {
+      "$ref": "#/components/schemas/communicationType"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "number": {
+      "type": "string",
+      "example": "1615"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2021-09-01"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/senate-communication/117/ec/1615?format=json"
+    }
+  }
+}

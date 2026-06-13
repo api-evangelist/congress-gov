@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CoSponsor",
+  "title": "CoSponsor",
+  "type": "object",
+  "properties": {
+    "bioguidId": {
+      "type": "string",
+      "example": "F000450"
+    },
+    "district": {
+      "type": "integer",
+      "example": 5
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Virginia"
+    },
+    "fullName": {
+      "type": "string",
+      "example": "Rep. Foxx, Virginia [R-NC-5]"
+    },
+    "isOriginalCosponsor": {
+      "type": "boolean",
+      "example": true
+    },
+    "lastName": {
+      "type": "string",
+      "example": "Foxx"
+    },
+    "party": {
+      "type": "string",
+      "example": "R"
+    },
+    "sponsorshipDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2021-05-11"
+    },
+    "state": {
+      "type": "string",
+      "example": "NC"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/member/F000450?format=json"
+    }
+  }
+}

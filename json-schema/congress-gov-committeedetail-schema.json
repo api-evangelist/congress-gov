@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/CommitteeDetail",
+  "title": "CommitteeDetail",
+  "type": "object",
+  "properties": {
+    "bills": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 25384
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/committee/house/hspw00/bills?format=json"
+        }
+      }
+    },
+    "communications": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 25384
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/committee/house/hspw00/house-communication?format=json"
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/committeeHistory"
+      }
+    },
+    "isCurrent": {
+      "type": "boolean",
+      "example": true
+    },
+    "reports": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 25384
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/committee/house/hspw00/reports?format=json"
+        }
+      }
+    },
+    "subcommittees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/subcommittees"
+      }
+    },
+    "systemCode": {
+      "type": "string",
+      "example": "hspw00"
+    },
+    "type": {
+      "type": "string",
+      "example": "Standing"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-02-04T00:07:37Z"
+    }
+  }
+}

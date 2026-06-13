@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/HearingDetail",
+  "title": "HearingDetail",
+  "type": "object",
+  "properties": {
+    "associatedMeeting": {
+      "$ref": "#/components/schemas/associatedMeeting"
+    },
+    "chamber": {
+      "type": "string",
+      "example": "House"
+    },
+    "citation": {
+      "type": "string",
+      "example": "H.Hrg.118"
+    },
+    "committees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/subcommittees"
+      }
+    },
+    "congress": {
+      "type": "integer",
+      "example": 118
+    },
+    "dates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date",
+        "example": "2022-08-01"
+      }
+    },
+    "formats": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/formats"
+      }
+    },
+    "jacketNumber": {
+      "type": "integer",
+      "example": 50896
+    },
+    "libraryOfCongressidentifier": {
+      "type": "string",
+      "example": "LC70380"
+    },
+    "title": {
+      "type": "string",
+      "example": "FEDERAL PANDEMIC SPENDING: A PRESCRIPTION FOR WASTE, FRAUD AND ABUSE"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-11-04T03:21:12Z"
+    }
+  }
+}

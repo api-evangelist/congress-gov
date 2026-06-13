@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/AmendmentNumber",
+  "title": "AmendmentNumber",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "example": "https://api.congress.gov/v3/amendment/117/samdt/4/actions?format=json"
+        }
+      }
+    },
+    "amendedBill": {
+      "$ref": "#/components/schemas/amendedBill"
+    },
+    "chamber": {
+      "type": "string"
+    },
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "number": {
+      "type": "string",
+      "example": "2137"
+    },
+    "sponsors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sponsor"
+      }
+    },
+    "submittedDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-02-02T05:00:00Z"
+    },
+    "textVersions": {
+      "$ref": "#/components/schemas/textVersion"
+    },
+    "type": {
+      "type": "string",
+      "format": "SAMDT"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-08-08T12:00:00Z"
+    }
+  }
+}

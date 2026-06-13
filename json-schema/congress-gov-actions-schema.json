@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Actions",
+  "title": "Actions",
+  "type": "object",
+  "properties": {
+    "actionCode": {
+      "type": "string",
+      "example": "36000"
+    },
+    "actionDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-01"
+    },
+    "sourceSystem": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Library of Congress"
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "example": "Became Public Law No: 117-108."
+    },
+    "type": {
+      "type": "string",
+      "example": "BecameLaw"
+    }
+  }
+}

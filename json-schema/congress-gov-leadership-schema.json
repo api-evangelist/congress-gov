@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/leadership",
+  "title": "leadership",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 113
+    },
+    "type": {
+      "type": "string",
+      "example": "President Pro Tempore"
+    }
+  }
+}

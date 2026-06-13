@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/policyArea",
+  "title": "policyArea",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Government Operations and Politics"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/relatedItem",
+  "title": "relatedItem",
+  "type": "object",
+  "properties": {
+    "bills": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/associatedBill"
+      }
+    },
+    "nominations": {
+      "type": "array"
+    },
+    "treaties": {
+      "type": "array"
+    }
+  }
+}

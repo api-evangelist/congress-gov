@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/video",
+  "title": "video",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Legislative Hearing on H.R. 1246 and H.R. 1532 | Indian and Insular Affairs Subcommittee"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://www.congress.gov/event/118th-Congress/house-event/115538"
+    }
+  }
+}

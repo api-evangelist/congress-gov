@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/relationshipDetails",
+  "title": "relationshipDetails",
+  "type": "object",
+  "properties": {
+    "identifiedBy": {
+      "type": "string",
+      "example": "CRS"
+    },
+    "type": {
+      "type": "string",
+      "example": "Related Bill"
+    }
+  }
+}

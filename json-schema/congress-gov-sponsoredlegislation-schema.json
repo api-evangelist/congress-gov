@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/sponsoredLegislation",
+  "title": "sponsoredLegislation",
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 117
+    },
+    "introducedDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-16"
+    },
+    "latestAction": {
+      "$ref": "#/components/schemas/latestAction"
+    },
+    "number": {
+      "type": "string",
+      "example": "4417"
+    },
+    "policyArea": {
+      "$ref": "#/components/schemas/policyArea"
+    },
+    "title": {
+      "type": "string",
+      "example": "Patent Trial and Appeal Board Reform Act of 2022"
+    },
+    "type": {
+      "type": "string",
+      "example": "S"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/bill/117/s/4417?format=json"
+    }
+  }
+}

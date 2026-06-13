@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Sessions",
+  "title": "Sessions",
+  "type": "object",
+  "properties": {
+    "chamber": {
+      "type": "string",
+      "example": "House of Representatives"
+    },
+    "number": {
+      "type": "integer",
+      "example": 1
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2019-01-01"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2020-01-01"
+    }
+  }
+}

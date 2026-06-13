@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/associatedMeeting",
+  "title": "associatedMeeting",
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "example": "115266"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "https://api.congress.gov/v3/committee-meeting/117/house/115266?format=json"
+    }
+  }
+}

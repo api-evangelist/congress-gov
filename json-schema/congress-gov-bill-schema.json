@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.congress.gov/schemas/Bill",
+  "title": "Bill",
+  "xml": {
+    "wrapped": false
+  },
+  "type": "object",
+  "properties": {
+    "congress": {
+      "type": "integer",
+      "example": 119
+    },
+    "latestAction": {
+      "type": "object",
+      "properties": {
+        "actionDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2025-11-21"
+        },
+        "text": {
+          "type": "string",
+          "example": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry."
+        }
+      }
+    },
+    "number": {
+      "type": "string",
+      "example": 3281
+    },
+    "originChamber": {
+      "type": "string",
+      "example": "Senate"
+    },
+    "originChamberCode": {
+      "type": "string",
+      "example": "S"
+    },
+    "title": {
+      "type": "string",
+      "example": "A bill to repeal certain provisions relating to nutrition."
+    },
+    "type": {
+      "type": "string",
+      "example": "S"
+    },
+    "updateDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2025-11-21"
+    },
+    "updateDateIncludingText": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-11-21"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "example": "http://api.congress.gov/v3/bill/119/s/3281?format=xml"
+    }
+  }
+}
