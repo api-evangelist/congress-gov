@@ -7,7 +7,7 @@ description: >
   member information. The API is free to use and requires a key obtained via
   the Data.gov signup page. Responses are available in JSON or XML format, with
   version 3 (v3) as the current release.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/congress-gov/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -32,7 +32,7 @@ apis:
       legislative data including bills, amendments, laws, members, committees,
       committee reports, the Congressional Record, nominations, treaties, CRS
       reports, hearing records, house votes, and house/senate communications.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://api.congress.gov/
     baseURL: https://api.congress.gov/v3
     tags:
