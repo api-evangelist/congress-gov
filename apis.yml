@@ -54,7 +54,7 @@ apis:
         url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
       - type: GitHubRepository
         url: https://github.com/LibraryOfCongress/api.congress.gov
-      - type: SignUp
+      - type: Signup
         url: https://api.congress.gov/sign-up/
       - type: ChangeLog
         url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
@@ -87,7 +87,7 @@ common:
     url: https://blogs.loc.gov/law/
   - type: Pricing
     url: https://api.congress.gov/sign-up/
-  - type: SignUp
+  - type: Signup
     url: https://api.congress.gov/sign-up/
   - type: PostmanCollection
     url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
