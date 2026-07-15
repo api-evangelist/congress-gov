@@ -77,6 +77,8 @@ apis:
         url: https://www.loc.gov/apis/additional-apis/congress-dot-gov-api/
         email: ""
 common:
+  - type: AgenticAccess
+    url: agentic-access/congress-gov-agentic-access.yml
   - type: DomainSecurity
     url: security/congress-gov-domain-security.yml
   - type: Authentication
