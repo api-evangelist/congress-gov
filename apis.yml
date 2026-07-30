@@ -7,7 +7,20 @@ description: >
   member information. The API is free to use and requires a key obtained via
   the Data.gov signup page. Responses are available in JSON or XML format, with
   version 3 (v3) as the current release.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/congress-gov.png
 url: https://raw.githubusercontent.com/api-evangelist/congress-gov/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -26,56 +39,686 @@ tags:
   - Congressional Record
   - US Federal
 apis:
-  - name: Congress.gov API v3
-    description: >
-      Version 3 of the Congress.gov REST API, providing access to US
-      legislative data including bills, amendments, laws, members, committees,
-      committee reports, the Congressional Record, nominations, treaties, CRS
-      reports, hearing records, house votes, and house/senate communications.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://api.congress.gov/
-    baseURL: https://api.congress.gov/v3
-    tags:
-      - Bills
-      - Amendments
-      - Laws
-      - Members
-      - Committees
-      - Congressional Record
-      - Nominations
-      - Treaties
-      - CRS Reports
-    properties:
-      - type: Documentation
-        url: https://github.com/LibraryOfCongress/api.congress.gov
-      - type: OpenAPI
-        url: https://api.congress.gov/
-      - type: PostmanCollection
-        url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
-      - type: GitHubRepository
-        url: https://github.com/LibraryOfCongress/api.congress.gov
-      - type: Signup
-        url: https://api.congress.gov/sign-up/
-      - type: ChangeLog
-        url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
-      - type: CoverageDates
-        url: https://www.congress.gov/help/coverage-dates
-      - type: DataOffsite
-        url: https://www.congress.gov/help/using-data-offsite
-      - type: ApiKeyInfo
-        url: https://api.data.gov/docs/api-key/
-      - type: Issues
-        url: https://github.com/LibraryOfCongress/api.congress.gov/issues
-      - type: Plans
-        url: plans/congress-gov-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/congress-gov-rate-limits.yml
-      - type: FinOps
-        url: finops/congress-gov-finops.yml
-    contact:
-      - FN: Library of Congress
-        url: https://www.loc.gov/apis/additional-apis/congress-dot-gov-api/
-        email: ""
+- aid: congress-gov:congress-gov-amendments-api
+  name: Congress.gov API amendments API
+  description: Returns amendment data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - amendments
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-amendments-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-bill-api
+  name: Congress.gov API bill API
+  description: Returns bill data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - bill
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-bill-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-bound-congressional-record-api
+  name: Congress.gov API bound-congressional-record API
+  description: Returns bound Congressional Record data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - bound-congressional-record
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-bound-congressional-record-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-committee-api
+  name: Congress.gov API committee API
+  description: Returns committee data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - committee
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-committee-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-committee-meeting-api
+  name: Congress.gov API committee-meeting API
+  description: Returns committee meeting data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - committee-meeting
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-committee-meeting-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-committee-print-api
+  name: Congress.gov API committee-print API
+  description: Returns committee print data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - committee-print
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-committee-print-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-committee-report-api
+  name: Congress.gov API committee-report API
+  description: Returns committee report data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - committee-report
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-committee-report-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-congress-api
+  name: Congress.gov API congress API
+  description: Returns congress and congressional sessions data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - congress
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-congress-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-congressional-record-api
+  name: Congress.gov API congressional-record API
+  description: Returns Congressional Record data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - congressional-record
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-congressional-record-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-crsreport-api
+  name: Congress.gov API crsreport API
+  description: Returns Congressional Research Service (CRS) report data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - crsreport
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-crsreport-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-daily-congressional-record-api
+  name: Congress.gov API daily-congressional-record API
+  description: Returns daily Congressional Record data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - daily-congressional-record
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-daily-congressional-record-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-hearing-api
+  name: Congress.gov API hearing API
+  description: Returns hearing data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - hearing
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-hearing-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-house-communication-api
+  name: Congress.gov API house-communication API
+  description: Returns House communication data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - house-communication
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-house-communication-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-house-requirement-api
+  name: Congress.gov API house-requirement API
+  description: Returns House requirement data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - house-requirement
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-house-requirement-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-house-vote-api
+  name: Congress.gov API house-vote API
+  description: '[BETA] Returns House of Representatives roll call vote data from the API'
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - house-vote
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-house-vote-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-member-api
+  name: Congress.gov API member API
+  description: Returns member data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - member
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-member-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-nomination-api
+  name: Congress.gov API nomination API
+  description: Returns nomination data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - nomination
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-nomination-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-senate-communication-api
+  name: Congress.gov API senate-communication API
+  description: Returns Senate communication data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - senate-communication
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-senate-communication-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-summaries-api
+  name: Congress.gov API summaries API
+  description: Returns summaries data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - summaries
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-summaries-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
+- aid: congress-gov:congress-gov-treaty-api
+  name: Congress.gov API treaty API
+  description: Returns treaty data from the API
+  humanURL: https://api.congress.gov/
+  baseURL: https://api.congress.gov/v3
+  tags:
+  - treaty
+  properties:
+  - type: OpenAPI
+    url: openapi/congress-gov-treaty-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/6803158/VV56LCkZ
+  - type: GitHubRepository
+    url: https://github.com/LibraryOfCongress/api.congress.gov
+  - type: Signup
+    url: https://api.congress.gov/sign-up/
+  - type: ChangeLog
+    url: https://github.com/LibraryOfCongress/api.congress.gov/blob/main/ChangeLog.md
+  - type: CoverageDates
+    url: https://www.congress.gov/help/coverage-dates
+  - type: DataOffsite
+    url: https://www.congress.gov/help/using-data-offsite
+  - type: ApiKeyInfo
+    url: https://api.data.gov/docs/api-key/
+  - type: Issues
+    url: https://github.com/LibraryOfCongress/api.congress.gov/issues
+  - type: Plans
+    url: plans/congress-gov-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/congress-gov-rate-limits.yml
+  - type: FinOps
+    url: finops/congress-gov-finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/congress-gov-agentic-access.yml
