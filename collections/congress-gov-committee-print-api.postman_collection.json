@@ -1,0 +1,1096 @@
+{
+  "item": [
+    {
+      "id": "d596df64-0df3-48d5-8bf2-9381f8d49bf0",
+      "name": "committee-print",
+      "description": {
+        "content": "Returns committee print data from the API",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92e4983f-78af-44a0-b994-3826342ab739",
+          "name": "Returns a list of committee prints.",
+          "request": {
+            "name": "Returns a list of committee prints.",
+            "description": {
+              "content": "Returns a list of committee prints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-print"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5302721a-e647-401d-bd84-8293c24f08a0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f369fe5-8898-4944-9ad2-a3019fa4003b",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "691b4a00-7204-4835-bc3d-8b5c75da84f8",
+          "name": "Returns a list of committee prints filtered by the specified congress.",
+          "request": {
+            "name": "Returns a list of committee prints filtered by the specified congress.",
+            "description": {
+              "content": "Returns a list of committee prints filtered by the specified congress.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-print",
+                ":congress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81accf52-5ca4-4b11-be2c-061b5980eb88",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98d05cf0-a80e-4657-8921-c67bc955bf57",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26fd9843-543e-4724-a695-c502dc9dbf17",
+          "name": "Returns a list of committee prints filtered by the specified congress and chamber.",
+          "request": {
+            "name": "Returns a list of committee prints filtered by the specified congress and chamber.",
+            "description": {
+              "content": "Returns a list of committee prints filtered by the specified congress and chamber.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-print",
+                ":congress",
+                ":chamber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chamber",
+                  "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba26b495-62ce-4486-a551-f2643e2e471e",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"congress\": 117,\n    \"jacketNumber\": 48144,\n    \"updateDate\": \"2022-08-01 21:19:33+00:00\",\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d529caab-ecb4-4d6e-bb99-b8c6cc10f882",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2db5864-193f-4780-a3fe-6c35b33e7691",
+          "name": "Returns detailed information for a specified committee print.",
+          "request": {
+            "name": "Returns detailed information for a specified committee print.",
+            "description": {
+              "content": "Returns detailed information for a specified committee print.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-print",
+                ":congress",
+                ":chamber",
+                ":jacketNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chamber",
+                  "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "jacketNumber",
+                  "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2698c9be-47de-45a3-ab6f-b2cb5a5770e1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber",
+                    ":jacketNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jacketNumber",
+                      "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"associatedBills\": [\n    {\n      \"congress\": 116,\n      \"number\": \"6395\",\n      \"type\": \"HR\",\n      \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n    },\n    {\n      \"congress\": 116,\n      \"number\": \"6395\",\n      \"type\": \"HR\",\n      \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n    }\n  ],\n  \"chamber\": \"House\",\n  \"citation\": \"117-62\",\n  \"committees\": [\n    {\n      \"name\": \"Rules Committee\",\n      \"systemCode\": \"hsru00\",\n      \"url\": \"https://api.congress.gov/v3/committee/house/hsru00?format=json\"\n    },\n    {\n      \"name\": \"Rules Committee\",\n      \"systemCode\": \"hsru00\",\n      \"url\": \"https://api.congress.gov/v3/committee/house/hsru00?format=json\"\n    }\n  ],\n  \"congress\": 117,\n  \"jacketNumber\": 48144,\n  \"text\": {\n    \"count\": 4,\n    \"url\": \"https://api.congress.gov/v3/committee-print/117/house/48144/text?format=json\"\n  },\n  \"number\": \"62\",\n  \"title\": \"RULES COMMITTEE PRINT 117-62 TEXT OF H.R. 5768, VIOLENT INCIDENT CLEAR- ANCE AND TECHNOLOGICAL INVESTIGATIVE METHODS ACT OF 2022\",\n  \"updateDate\": \"2022-08-01 21:19:33+00:00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "848988a4-e036-43d8-a7da-05600f6e920b",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber",
+                    ":jacketNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jacketNumber",
+                      "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87cb8d70-c8d6-4275-a66e-9281f89e171a",
+          "name": "Returns the list of texts for a specified committee print.",
+          "request": {
+            "name": "Returns the list of texts for a specified committee print.",
+            "description": {
+              "content": "Returns the list of texts for a specified committee print.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-print",
+                ":congress",
+                ":chamber",
+                ":jacketNumber",
+                "text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chamber",
+                  "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "jacketNumber",
+                  "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbbca42b-5ea0-47ce-9ab0-416c30fc46ed",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber",
+                    ":jacketNumber",
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jacketNumber",
+                      "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"Formatted Text\",\n    \"url\": \"https://www.congress.gov/117/cprt/HPRT48144/CPRT-117HPRT48144.htm\"\n  },\n  {\n    \"type\": \"Formatted Text\",\n    \"url\": \"https://www.congress.gov/117/cprt/HPRT48144/CPRT-117HPRT48144.htm\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31a0085f-a1c7-4372-b171-be1001c57954",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-print",
+                    ":congress",
+                    ":chamber",
+                    ":jacketNumber",
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chamber",
+                      "description": "(Required) The chamber name. Value can be house, senate, or joint."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jacketNumber",
+                      "description": "(Required) The jacket number for the print. For example, the value can be 48144."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cd4eb04c-348e-48f1-8096-4e0b09ceef94",
+    "name": "Congress.gov amendments committee-print API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href=\"sign-up/\" target=\"_blank\">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href=\"https://github.com/LibraryOfCongress/api.congress.gov/\" target=\"_blank\">GitHub repository</a>.\n",
+      "type": "text/plain"
+    }
+  }
+}

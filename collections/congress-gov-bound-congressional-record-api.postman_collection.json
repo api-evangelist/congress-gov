@@ -1,0 +1,810 @@
+{
+  "item": [
+    {
+      "id": "a25f3293-0265-4aae-b2d8-f1853121e656",
+      "name": "bound-congressional-record",
+      "description": {
+        "content": "Returns bound Congressional Record data from the API",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99ddaf77-b61d-4177-ab0a-2ecd36e933ea",
+          "name": "Returns a list of bound congressional records issues sorted by most recent.",
+          "request": {
+            "name": "Returns a list of bound congressional records issues sorted by most recent.",
+            "description": {
+              "content": "Returns a list of bound congressional record issues sorted by most recent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bound-congressional-record"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09ed4cb8-324b-42ee-8409-c64f893fbacd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"boundCongressionalRecord\": [\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    },\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de07733f-e99c-48fe-95fe-e1dc15649a55",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2fffe43-6e61-4fa9-abb0-0ce18fd4847f",
+          "name": "Returns a list of bound congressional records issues sorted by most recent.",
+          "request": {
+            "name": "Returns a list of bound congressional records issues sorted by most recent.",
+            "description": {
+              "content": "Returns a list of bound congressional record issues sorted by most recent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bound-congressional-record",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "The specified year of the bound Congressional record, for example 1990."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e730e70-b52f-42c1-b67f-4695e9902793",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"boundCongressionalRecord\": [\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    },\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "650a18ce-2cc2-4b1e-a840-804838ef4cc4",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ced2207-df6e-4dac-aed0-738ee488b61e",
+          "name": "Returns a list of bound congressional records issues sorted by most recent.",
+          "request": {
+            "name": "Returns a list of bound congressional records issues sorted by most recent.",
+            "description": {
+              "content": "Returns a list of bound congressional record issues sorted by most recent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bound-congressional-record",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "The specified year of the bound Congressional record, for example 1990."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "The specified month of the bound Congressional record, for example 4 for April."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c877e8d-ab60-4da4-ae95-a00e8797efec",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "The specified month of the bound Congressional record, for example 4 for April."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"boundCongressionalRecord\": [\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    },\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47db636e-a32c-4827-8230-d4ad0ae7cf45",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "The specified month of the bound Congressional record, for example 4 for April."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a48f9df9-cef6-4250-bc5f-da238b1df0fc",
+          "name": "Returns a list of bound congressional records issues sorted by most recent.",
+          "request": {
+            "name": "Returns a list of bound congressional records issues sorted by most recent.",
+            "description": {
+              "content": "Returns a list of bound congressional record issues sorted by most recent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bound-congressional-record",
+                ":year",
+                ":month",
+                ":day"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "The specified year of the bound Congressional record, for example 1990."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "The specified month of the bound Congressional record, for example 4 for April."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "day",
+                  "description": "The specified day of the bound Congressional record, for example 18."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a55da75-059f-4024-9907-3e2a0a090333",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year",
+                    ":month",
+                    ":day"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "The specified month of the bound Congressional record, for example 4 for April."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "day",
+                      "description": "The specified day of the bound Congressional record, for example 18."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"boundCongressionalRecord\": [\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    },\n    {\n      \"congress\": 101,\n      \"date\": \"1990-05-01\",\n      \"sessionNumber\": 2,\n      \"updateDate\": \"2020-10-20\",\n      \"url\": \"https://api.congress.gov/v3/bound-congressional-record/1990/5/1?format=json\",\n      \"volumeNumber\": 136\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5cd3183-c8ea-4154-b12f-ba4cc4ad7e71",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bound-congressional-record",
+                    ":year",
+                    ":month",
+                    ":day"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "The specified year of the bound Congressional record, for example 1990."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "The specified month of the bound Congressional record, for example 4 for April."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "day",
+                      "description": "The specified day of the bound Congressional record, for example 18."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4446573-f915-4465-8c09-d52372d81ebc",
+    "name": "Congress.gov amendments bound-congressional-record API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href=\"sign-up/\" target=\"_blank\">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href=\"https://github.com/LibraryOfCongress/api.congress.gov/\" target=\"_blank\">GitHub repository</a>.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1138 @@
+{
+  "item": [
+    {
+      "id": "db65c24b-0094-4dfb-9ebb-c66f9c34a0f0",
+      "name": "committee-report",
+      "description": {
+        "content": "Returns committee report data from the API",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bb2dfa8-2605-4b18-b9cf-4736c61106cf",
+          "name": "Returns the list of committee reports.",
+          "request": {
+            "name": "Returns the list of committee reports.",
+            "description": {
+              "content": "Returns the list of committee reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "conference",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate conference reports. Value can be true or false."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0b5f047-27cf-4ec9-8e38-08be2c053a60",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efedc0b4-0294-4f92-a258-ef835552c1ce",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbabd4a1-f21a-4d76-91da-f9e84f66ab5d",
+          "name": "Returns the list of committee reports filtered by specified congress.",
+          "request": {
+            "name": "Returns the list of committee reports filtered by specified congress.",
+            "description": {
+              "content": "Returns the list of committee reports filtered by specified congress.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-report",
+                ":congress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "conference",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate conference reports. Value can be true or false."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eddac2ee-7904-450a-ba87-a4996631b80a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d598f9c1-0c29-46bb-9285-df007ef6bf2f",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ca08b3-3c45-4a75-a9b3-90dbeefe29e1",
+          "name": "Returns the list of committee reports filtered by specified congress and report type.",
+          "request": {
+            "name": "Returns the list of committee reports filtered by specified congress and report type.",
+            "description": {
+              "content": "Returns the list of committee reports filtered by specified congress and report type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-report",
+                ":congress",
+                ":reportType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "conference",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate conference reports. Value can be true or false."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportType",
+                  "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08fac1df-c71c-49c5-8617-95b8843bd27b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b753994c-2009-4d75-9e13-7708c16406d1",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "conference",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca03f675-c7a1-4f14-b3c6-38e7c60fb0bc",
+          "name": "Returns detailed information for a specified committee report.",
+          "request": {
+            "name": "Returns detailed information for a specified committee report.",
+            "description": {
+              "content": "Returns detailed information for a specified committee report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-report",
+                ":congress",
+                ":reportType",
+                ":reportNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportType",
+                  "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportNumber",
+                  "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53ca4a80-0b55-4d34-ae26-f0b4fa040d21",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType",
+                    ":reportNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportNumber",
+                      "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\",\n    \"associatedBill\": [\n      {\n        \"congress\": 116,\n        \"number\": \"6395\",\n        \"type\": \"HR\",\n        \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n      },\n      {\n        \"congress\": 116,\n        \"number\": \"6395\",\n        \"type\": \"HR\",\n        \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n      }\n    ],\n    \"isConferenceReport\": true,\n    \"issueDate\": \"2020-12-03T05:00:00Z\",\n    \"reportType\": \"H.Rept.\",\n    \"sessionNumber\": 2,\n    \"text\": {\n      \"count\": 2,\n      \"url\": \"https://api.congress.gov/v3/committee-report/116/hrpt/617/text?format=json\"\n    },\n    \"title\": \"WILLIAM M. (MAC) THORNBERRY NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2021\"\n  },\n  {\n    \"chamber\": \"House\",\n    \"citation\": \"H. Rept. 109-570\",\n    \"congress\": 117,\n    \"number\": 570,\n    \"part\": 1,\n    \"type\": \"HRPT\",\n    \"updateDate\": \"2022-02-18T16:38:41Z\",\n    \"url\": \"https://api.congress.gov/v3/bill/117hr570?format=json\",\n    \"associatedBill\": [\n      {\n        \"congress\": 116,\n        \"number\": \"6395\",\n        \"type\": \"HR\",\n        \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n      },\n      {\n        \"congress\": 116,\n        \"number\": \"6395\",\n        \"type\": \"HR\",\n        \"url\": \"https://api.congress.gov/v3/bill/116/hr/6395?format=json\"\n      }\n    ],\n    \"isConferenceReport\": true,\n    \"issueDate\": \"2020-12-03T05:00:00Z\",\n    \"reportType\": \"H.Rept.\",\n    \"sessionNumber\": 2,\n    \"text\": {\n      \"count\": 2,\n      \"url\": \"https://api.congress.gov/v3/committee-report/116/hrpt/617/text?format=json\"\n    },\n    \"title\": \"WILLIAM M. (MAC) THORNBERRY NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2021\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65fdfca3-cef5-4e92-b76b-a24c8ee784d9",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType",
+                    ":reportNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportNumber",
+                      "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a832d4e-2f07-4650-ab93-aad9a17e4a82",
+          "name": "Returns the list of texts for a specified committee report.",
+          "request": {
+            "name": "Returns the list of texts for a specified committee report.",
+            "description": {
+              "content": "Returns the list of texts for a specified committee report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "committee-report",
+                ":congress",
+                ":reportType",
+                ":reportNumber",
+                "text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportType",
+                  "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportNumber",
+                  "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fafe28fa-ae74-4de4-ab6f-0f5775795689",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType",
+                    ":reportNumber",
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportNumber",
+                      "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"isErrata\": \"N\",\n    \"type\": \"Formatted Text\",\n    \"url\": \"https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm\"\n  },\n  {\n    \"isErrata\": \"N\",\n    \"type\": \"Formatted Text\",\n    \"url\": \"https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1e1287d-b3ab-47a7-a091-ac758ad075e5",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "committee-report",
+                    ":congress",
+                    ":reportType",
+                    ":reportNumber",
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) The type of committee report. Value can be hrpt, srpt, or erpt."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportNumber",
+                      "description": "(Required) The committee report’s assigned number. For example, the value can be 617."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4028144c-c016-4c46-aea4-da917c415d7c",
+    "name": "Congress.gov amendments committee-report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href=\"sign-up/\" target=\"_blank\">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href=\"https://github.com/LibraryOfCongress/api.congress.gov/\" target=\"_blank\">GitHub repository</a>.\n",
+      "type": "text/plain"
+    }
+  }
+}

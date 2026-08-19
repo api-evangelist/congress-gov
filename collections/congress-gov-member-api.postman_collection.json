@@ -1,0 +1,1538 @@
+{
+  "item": [
+    {
+      "id": "81080921-4de1-444d-b447-3621621f420d",
+      "name": "member",
+      "description": {
+        "content": "Returns member data from the API",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d386f41-1113-49de-8195-7a42585e2dc4",
+          "name": "Returns a list of congressional members.",
+          "request": {
+            "name": "Returns a list of congressional members.",
+            "description": {
+              "content": "Returns a list of congressional members.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDateTime",
+                  "value": "<string>",
+                  "description": "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateTime",
+                  "value": "<string>",
+                  "description": "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+                },
+                {
+                  "disabled": false,
+                  "key": "currentMember",
+                  "value": "<string>",
+                  "description": "The status of the member. Use true or false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fe7f3ed-f63d-4e7b-9408-80be662ba519",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"N000147\",\n  \"depiction\": {\n    \"attribution\": \"Congressional Pictorial Directory\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg\"\n  },\n  \"name\": \"Norton, Eleanor Holmes\",\n  \"partyName\": \"Democratic\",\n  \"state\": \"District of Columbia\",\n  \"terms\": {\n    \"item\": [\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      },\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      }\n    ]\n  },\n  \"updateDate\": \"2025-11-12T08:45:43Z\",\n  \"url\": \"https://api.congress.gov/v3/member/N000147?format=json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dddb9a02-a340-490a-808e-3c45fa8bd2be",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDateTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64aeed50-7ff9-4abf-ae57-ef0cb242549a",
+          "name": "Returns detailed information for a specified congressional member.",
+          "request": {
+            "name": "Returns detailed information for a specified congressional member.",
+            "description": {
+              "content": "Returns detailed information for a specified congressional member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                ":bioguideId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bioguideId",
+                  "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89299fd5-a381-45bd-a0b0-31337571c08b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"L000174\",\n  \"birthYear\": \"1940\",\n  \"cosponsoredLegislation\": {\n    \"count\": 1,\n    \"url\": \"https://api.congress.gov/v3/member/L000174/cosponsored-legislation\\\"\"\n  },\n  \"depiction\": {\n    \"attribution\": \"<a href=\\\"\\\\&quot;https://www.senate.gov/artandhistory/history/common/generic/Photo_Collection_of_the_Senate_Historical_Office.htm\\\\&quot;\\\">Courtesy U.S. Senate Historical Office</a>\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/l000174_200.jpg\"\n  },\n  \"directOrderName\": \"Patrick J. Leahy\",\n  \"firstName\": \"Patrick\",\n  \"honorificName\": \"Mr.\",\n  \"invertedOrderName\": \"Leahy, Patrick J.\",\n  \"lastname\": \"Leahy\",\n  \"leadership\": [\n    {\n      \"congress\": 113,\n      \"type\": \"President Pro Tempore\"\n    },\n    {\n      \"congress\": 113,\n      \"type\": \"President Pro Tempore\"\n    }\n  ],\n  \"partyHistory\": [\n    {\n      \"partyAbbreviation\": \"D\",\n      \"partyName\": \"Democrat\",\n      \"startYear\": 1975\n    },\n    {\n      \"partyAbbreviation\": \"D\",\n      \"partyName\": \"Democrat\",\n      \"startYear\": 1975\n    }\n  ],\n  \"sponsoredLegislation\": {\n    \"count\": 1768,\n    \"url\": \"https://api.congress.gov/v3/member/L000174/sponsored-legislation\"\n  },\n  \"state\": \"Vermont\",\n  \"terms\": [\n    {\n      \"chamber\": \"Senate\",\n      \"congress\": 116,\n      \"endYear\": 2021,\n      \"memberType\": \"Senator\",\n      \"startYear\": 2019,\n      \"stateCode\": \"VT\",\n      \"stateName\": \"Vermont\"\n    },\n    {\n      \"chamber\": \"Senate\",\n      \"congress\": 116,\n      \"endYear\": 2021,\n      \"memberType\": \"Senator\",\n      \"startYear\": 2019,\n      \"stateCode\": \"VT\",\n      \"stateName\": \"Vermont\"\n    }\n  ],\n  \"updateDate\": \"2022-11-07T13:42:19Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e427ab81-297d-4170-8e9f-788853f856e8",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b908acf9-547b-463e-8a0d-7d2381bf8c6e",
+          "name": "Returns the list of legislation sponsored by a specified congressional member.",
+          "request": {
+            "name": "Returns the list of legislation sponsored by a specified congressional member.",
+            "description": {
+              "content": "Returns the list of legislation sponsored by a specified congressional member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                ":bioguideId",
+                "sponsored-legislation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bioguideId",
+                  "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa3fc137-1eae-46e7-93ce-83ee070fe0f6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId",
+                    "sponsored-legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"congress\": 117,\n    \"introducedDate\": \"2022-06-16\",\n    \"latestAction\": {\n      \"actionDate\": \"2022-06-16\",\n      \"text\": \"Read twice and referred to the Committee on the Judiciary.\"\n    },\n    \"number\": \"4417\",\n    \"policyArea\": {\n      \"name\": \"Government Operations and Politics\"\n    },\n    \"title\": \"Patent Trial and Appeal Board Reform Act of 2022\",\n    \"type\": \"S\",\n    \"url\": \"https://api.congress.gov/v3/bill/117/s/4417?format=json\"\n  },\n  {\n    \"congress\": 117,\n    \"introducedDate\": \"2022-06-16\",\n    \"latestAction\": {\n      \"actionDate\": \"2022-06-16\",\n      \"text\": \"Read twice and referred to the Committee on the Judiciary.\"\n    },\n    \"number\": \"4417\",\n    \"policyArea\": {\n      \"name\": \"Government Operations and Politics\"\n    },\n    \"title\": \"Patent Trial and Appeal Board Reform Act of 2022\",\n    \"type\": \"S\",\n    \"url\": \"https://api.congress.gov/v3/bill/117/s/4417?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27b20e7e-0d25-4b06-bdf2-8b60c5a8f005",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId",
+                    "sponsored-legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf2ab2f9-1772-47e0-8aae-7aedbec40a3a",
+          "name": "Returns the list of legislation cosponsored by a specified congressional member.",
+          "request": {
+            "name": "Returns the list of legislation cosponsored by a specified congressional member.",
+            "description": {
+              "content": "Returns the list of legislation cosponsored by a specified congressional member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                ":bioguideId",
+                "cosponsored-legislation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bioguideId",
+                  "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e60b3c3-96a8-4024-84f7-2a3d1d6a0559",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId",
+                    "cosponsored-legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"congress\": 117,\n    \"introducedDate\": \"2022-06-16\",\n    \"latestAction\": {\n      \"actionDate\": \"2022-06-16\",\n      \"text\": \"Read twice and referred to the Committee on the Judiciary.\"\n    },\n    \"number\": \"4417\",\n    \"policyArea\": {\n      \"name\": \"Government Operations and Politics\"\n    },\n    \"title\": \"Patent Trial and Appeal Board Reform Act of 2022\",\n    \"type\": \"S\",\n    \"url\": \"https://api.congress.gov/v3/bill/117/s/4417?format=json\"\n  },\n  {\n    \"congress\": 117,\n    \"introducedDate\": \"2022-06-16\",\n    \"latestAction\": {\n      \"actionDate\": \"2022-06-16\",\n      \"text\": \"Read twice and referred to the Committee on the Judiciary.\"\n    },\n    \"number\": \"4417\",\n    \"policyArea\": {\n      \"name\": \"Government Operations and Politics\"\n    },\n    \"title\": \"Patent Trial and Appeal Board Reform Act of 2022\",\n    \"type\": \"S\",\n    \"url\": \"https://api.congress.gov/v3/bill/117/s/4417?format=json\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c411e84-c113-4366-9ca5-975344288a56",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":bioguideId",
+                    "cosponsored-legislation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bioguideId",
+                      "description": "(Required) The bioguide identifier for the congressional member. For example, the value can be L000174."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e3d2ed2-b0dd-42f4-89ab-0e160ef66831",
+          "name": "Returns the list of members specified by Congress.",
+          "request": {
+            "name": "Returns the list of members specified by Congress.",
+            "description": {
+              "content": "Returns the list of members specified by Congress.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                "congress",
+                ":congress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting record returned. 0 is the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "currentMember",
+                  "value": "<string>",
+                  "description": "The status of the member. Use true or false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1d612fe-316f-495c-810e-d896b4294e9c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    "congress",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"N000147\",\n  \"depiction\": {\n    \"attribution\": \"Congressional Pictorial Directory\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg\"\n  },\n  \"name\": \"Norton, Eleanor Holmes\",\n  \"partyName\": \"Democratic\",\n  \"state\": \"District of Columbia\",\n  \"terms\": {\n    \"item\": [\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      },\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      }\n    ]\n  },\n  \"updateDate\": \"2025-11-12T08:45:43Z\",\n  \"url\": \"https://api.congress.gov/v3/member/N000147?format=json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73926214-0514-4069-a31d-234de9763b46",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    "congress",
+                    ":congress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e41f493-1654-455d-b996-b22ad41b6a5c",
+          "name": "Returns a list of members filtered by state.",
+          "request": {
+            "name": "Returns a list of members filtered by state.",
+            "description": {
+              "content": "Returns a list of members filtered by state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                ":stateCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records returned. The maximum limit is 250."
+                },
+                {
+                  "disabled": false,
+                  "key": "currentMember",
+                  "value": "<string>",
+                  "description": "The status of the member. Use true or false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stateCode",
+                  "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99b3f8fb-c0b4-4aa1-bdc5-5920b955ff40",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":stateCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"N000147\",\n  \"depiction\": {\n    \"attribution\": \"Congressional Pictorial Directory\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg\"\n  },\n  \"name\": \"Norton, Eleanor Holmes\",\n  \"partyName\": \"Democratic\",\n  \"state\": \"District of Columbia\",\n  \"terms\": {\n    \"item\": [\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      },\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      }\n    ]\n  },\n  \"updateDate\": \"2025-11-12T08:45:43Z\",\n  \"url\": \"https://api.congress.gov/v3/member/N000147?format=json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4346efad-8a90-4d1c-93b5-6b4bc6ed0418",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":stateCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "834addbf-d0a6-439a-ac7b-f16af864a26f",
+          "name": "Returns a list of members filtered by state and district.",
+          "request": {
+            "name": "Returns a list of members filtered by state and district.",
+            "description": {
+              "content": "Returns a list of members filtered by state and district.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                ":stateCode",
+                ":district"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "currentMember",
+                  "value": "<string>",
+                  "description": "The status of the member. Use true or false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stateCode",
+                  "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "district",
+                  "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72abd960-d0da-4b13-8f2d-95ba27b126e2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":stateCode",
+                    ":district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "district",
+                      "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"N000147\",\n  \"depiction\": {\n    \"attribution\": \"Congressional Pictorial Directory\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg\"\n  },\n  \"name\": \"Norton, Eleanor Holmes\",\n  \"partyName\": \"Democratic\",\n  \"state\": \"District of Columbia\",\n  \"terms\": {\n    \"item\": [\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      },\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      }\n    ]\n  },\n  \"updateDate\": \"2025-11-12T08:45:43Z\",\n  \"url\": \"https://api.congress.gov/v3/member/N000147?format=json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1724da2b-787f-4f10-9530-bfb1e5f2ed90",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    ":stateCode",
+                    ":district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "district",
+                      "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe63b734-43d8-411c-a08f-345b40f52911",
+          "name": "Returns a list of members filtered by congress, state and district.",
+          "request": {
+            "name": "Returns a list of members filtered by congress, state and district.",
+            "description": {
+              "content": "Returns a list of members filtered by congress, state and district.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "member",
+                "congress",
+                ":congress",
+                ":stateCode",
+                ":district"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "The data format. Value can be xml or json."
+                },
+                {
+                  "disabled": false,
+                  "key": "currentMember",
+                  "value": "<string>",
+                  "description": "The status of the member. Use true or false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stateCode",
+                  "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "district",
+                  "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "congress",
+                  "description": "(Required) The congress number. For example, can be 117."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "303618d8-fcd2-46eb-9eda-9cef03ec59a7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    "congress",
+                    ":congress",
+                    ":stateCode",
+                    ":district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "district",
+                      "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bioguideId\": \"N000147\",\n  \"depiction\": {\n    \"attribution\": \"Congressional Pictorial Directory\",\n    \"imageUrl\": \"https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg\"\n  },\n  \"name\": \"Norton, Eleanor Holmes\",\n  \"partyName\": \"Democratic\",\n  \"state\": \"District of Columbia\",\n  \"terms\": {\n    \"item\": [\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      },\n      {\n        \"chamber\": \"House of Representatives\",\n        \"startYear\": 1991\n      }\n    ]\n  },\n  \"updateDate\": \"2025-11-12T08:45:43Z\",\n  \"url\": \"https://api.congress.gov/v3/member/N000147?format=json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ae8d3bb-4f82-42ab-9225-bf9af2c5c796",
+              "name": "Invalid status value",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "member",
+                    "congress",
+                    ":congress",
+                    ":stateCode",
+                    ":district"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    },
+                    {
+                      "key": "currentMember",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stateCode",
+                      "description": "(Required) The two letter identifier for the state the member represents. For example, the value can be MI for Michigan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "district",
+                      "description": "(Required) The district number for the district the member represents. For example, the value can be 10."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "congress",
+                      "description": "(Required) The congress number. For example, can be 117."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "206a21f8-351d-425a-9d5e-91ba0098dab6",
+    "name": "Congress.gov amendments member API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href=\"sign-up/\" target=\"_blank\">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href=\"https://github.com/LibraryOfCongress/api.congress.gov/\" target=\"_blank\">GitHub repository</a>.\n",
+      "type": "text/plain"
+    }
+  }
+}
