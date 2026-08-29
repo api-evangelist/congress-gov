@@ -747,6 +747,9 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/congress-gov-capability-edges.yml
+    name: Congress.gov API Business Capability Map
   - type: AgenticAccess
     url: agentic-access/congress-gov-agentic-access.yml
   - type: DomainSecurity

@@ -1,0 +1,48 @@
+slug: congress-gov
+provider: Congress.gov API
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Public Sector & Government
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: house-vote
+  spec_file: congress-gov-house-vote-api-openapi.yml
+  capability_id: BC-3210.50
+  capability_id_l1: BC-3210
+  capability_name: Legislative Process Coordination
+  confidence: 0.72
+  evidence: GET /house-vote/{congress}/{session}/{voteNumber}/members — "Returns detailed information
+    for how members voted on a specified House of Representatives roll call vote"
+  reason: Roll call votes are the decision step of the parliamentary passage of legislation; the operations
+    expose vote records and member positions, fitting Legislative Process Coordination. Not electoral
+    administration — these are chamber votes, not public elections.
+- tag: bill
+  spec_file: congress-gov-bill-api-openapi.yml
+  capability_id: BC-3210.50
+  capability_id_l1: BC-3210
+  capability_name: Legislative Process Coordination
+  confidence: 0.7
+  evidence: Returns the list of actions on a specified bill; Returns the list of committees associated
+    with a specified bill; schemas Law, LawNumber, billSummariesArray
+  reason: Bills with actions, committee referrals, cosponsors, amendments and resulting laws — the legislative
+    passage of bills through Congress, i.e. legislative process coordination within legislative/regulatory
+    drafting management.
+- tag: hearing
+  spec_file: congress-gov-hearing-api-openapi.yml
+  capability_id: BC-3210.50
+  capability_id_l1: BC-3210
+  capability_name: Legislative Process Coordination
+  confidence: 0.7
+  evidence: GET /hearing/{congress}/{chamber} — "Returns a list of hearings filtered by specified congress
+    and chamber"; schemas HearingDetail, associatedMeeting, subcommittees
+  reason: Committee hearings are part of the parliamentary/legislative process (committee evidence). The
+    operations expose hearing records by Congress, chamber and committee, matching Legislative Process
+    Coordination as an information surface.
