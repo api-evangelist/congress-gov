@@ -58,7 +58,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - amendments
+  - Amendments
   tags_raw:
   - amendments
   properties:
@@ -94,7 +94,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - bill
+  - Bill
   tags_raw:
   - bill
   properties:
@@ -300,7 +300,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - congress
+  - Congress
   tags_raw:
   - congress
   properties:
@@ -336,7 +336,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - congressional-record
+  - Congressional Record
   tags_raw:
   - congressional-record
   properties:
@@ -440,7 +440,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - hearing
+  - Hearing
   tags_raw:
   - hearing
   properties:
@@ -578,7 +578,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - member
+  - Member
   tags_raw:
   - member
   properties:
@@ -682,7 +682,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - summaries
+  - Summary
   tags_raw:
   - summaries
   properties:
