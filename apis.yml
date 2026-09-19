@@ -95,7 +95,7 @@ apis:
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
   tags:
-  - Bill
+  - Bills
   tags_raw:
   - bill
   properties:
