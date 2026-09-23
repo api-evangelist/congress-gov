@@ -1,26 +1,7 @@
 {
   "provider": "congress-gov",
   "sources": [
-    "congress-gov-amendments-api-openapi.yml",
-    "congress-gov-bill-api-openapi.yml",
-    "congress-gov-bound-congressional-record-api-openapi.yml",
-    "congress-gov-committee-api-openapi.yml",
-    "congress-gov-committee-meeting-api-openapi.yml",
-    "congress-gov-committee-print-api-openapi.yml",
-    "congress-gov-committee-report-api-openapi.yml",
-    "congress-gov-congress-api-openapi.yml",
-    "congress-gov-congressional-record-api-openapi.yml",
-    "congress-gov-crsreport-api-openapi.yml",
-    "congress-gov-daily-congressional-record-api-openapi.yml",
-    "congress-gov-hearing-api-openapi.yml",
-    "congress-gov-house-communication-api-openapi.yml",
-    "congress-gov-house-requirement-api-openapi.yml",
-    "congress-gov-house-vote-api-openapi.yml",
-    "congress-gov-member-api-openapi.yml",
-    "congress-gov-nomination-api-openapi.yml",
-    "congress-gov-senate-communication-api-openapi.yml",
-    "congress-gov-summaries-api-openapi.yml",
-    "congress-gov-treaty-api-openapi.yml"
+    "_original/congress-gov-openapi.yml"
   ],
   "outputs": [
     "congress-gov-amendments-api-openapi.yml",
@@ -47,6 +28,31 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "congress-gov-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "congress-gov-amendments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-bill-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-bound-congressional-record-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-committee-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-committee-meeting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-committee-print-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-committee-report-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-congress-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-congressional-record-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-crsreport-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-daily-congressional-record-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-hearing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-house-communication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-house-requirement-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-house-vote-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-member-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-nomination-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-senate-communication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-summaries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "congress-gov-treaty-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

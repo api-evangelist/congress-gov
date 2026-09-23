@@ -1,23 +1,21 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: 'Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href="sign-up/" target="_blank">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href="https://github.com/LibraryOfCongress/api.congress.gov/" target="_blank">GitHub repository</a>.
-
-    '
-  title: Congress.gov amendments summaries API
+  description: Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. Sign up for an API key from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our GitHub repository.
+  title: Congress.gov Summaries API
   version: '3'
 servers:
 - url: /v3
 security:
 - ApiKeyAuth: []
 tags:
-- name: summaries
+- name: Summaries
   description: Returns summaries data from the API
 paths:
   /summaries:
     get:
       tags:
-      - summaries
-      summary: Returns a list of summaries sorted by date of last update.
+      - Summaries
+      summary: Returns a list of summaries sorted by date of last update
       description: Returns a list of summaries sorted by date of last update.
       parameters:
       - $ref: '#/components/parameters/format'
@@ -38,11 +36,13 @@ paths:
                 $ref: '#/components/schemas/Summaries'
         '400':
           description: Invalid status value
+      operationId: getSummaries
+      x-operation-id-source: derived
   /summaries/{congress}:
     get:
       tags:
-      - summaries
-      summary: Returns a list of summaries filtered by congress, sorted by date of last update.
+      - Summaries
+      summary: Returns a list of summaries filtered by congress, sorted by date of last update
       description: Returns a list of summaries filtered by congress, sorted by date of last update.
       parameters:
       - $ref: '#/components/parameters/congress'
@@ -64,11 +64,13 @@ paths:
                 $ref: '#/components/schemas/Summaries'
         '400':
           description: Invalid status value
+      operationId: getSummariesByCongress
+      x-operation-id-source: derived
   /summaries/{congress}/{billType}:
     get:
       tags:
-      - summaries
-      summary: Returns a list of summaries filtered by congress and by bill type, sorted by date of last update.
+      - Summaries
+      summary: Returns a list of summaries filtered by congress and by bill type, sorted by…
       description: Returns a list of summaries filtered by congress and by bill type, sorted by date of last update.
       parameters:
       - $ref: '#/components/parameters/congress'
@@ -91,74 +93,39 @@ paths:
                 $ref: '#/components/schemas/Summaries'
         '400':
           description: Invalid status value
+      operationId: getSummariesByCongressByBillType
+      x-operation-id-source: derived
 components:
-  parameters:
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
-      schema:
-        type: integer
-        format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    sort:
-      name: sort
-      in: query
-      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
-      required: false
-      schema:
-        type: string
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    billType:
-      name: billType
-      in: path
-      description: The type of bill. Value can be hr, s, hjres, sjres, hconres, sconres, hres, or sres.
-      required: true
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
   schemas:
-    Summaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/summariesArray'
+    summaryBill:
+      type: object
+      properties:
+        congress:
+          type: integer
+          example: 117
+        number:
+          type: string
+          example: 1234
+        originChamber:
+          type: string
+          example: Senate
+        originChamberCode:
+          type: string
+          example: S
+        title:
+          type: string
+          example: Pay Our Capitol Police Act
+        type:
+          type: string
+          example: HR
+        updateDateIncludingText:
+          type: string
+          format: date
+          example: '2021-08-08'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/bill/117/hr/1234?format=json
     summariesArray:
       type: object
       properties:
@@ -191,35 +158,72 @@ components:
         versionCode:
           type: string
           example: '173'
-    summaryBill:
-      type: object
-      properties:
-        congress:
-          type: integer
-          example: 117
-        number:
-          type: string
-          example: 1234
-        originChamber:
-          type: string
-          example: Senate
-        originChamberCode:
-          type: string
-          example: S
-        title:
-          type: string
-          example: Pay Our Capitol Police Act
-        type:
-          type: string
-          example: HR
-        updateDateIncludingText:
-          type: string
-          format: date
-          example: '2021-08-08'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/bill/117/hr/1234?format=json
+    Summaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/summariesArray'
+  parameters:
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
+    sort:
+      name: sort
+      in: query
+      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
+      required: false
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    billType:
+      name: billType
+      in: path
+      description: The type of bill. Value can be hr, s, hjres, sjres, hconres, sconres, hres, or sres.
+      required: true
+      schema:
+        type: string
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
+      schema:
+        type: integer
+        format: int32
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

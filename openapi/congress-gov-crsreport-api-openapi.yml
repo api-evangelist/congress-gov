@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: 'Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. <a href="sign-up/" target="_blank">Sign up for an API key</a> from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our <a href="https://github.com/LibraryOfCongress/api.congress.gov/" target="_blank">GitHub repository</a>.
-
-    '
-  title: Congress.gov amendments crsreport API
+  description: Congress.gov shares its application programming interface (API) with the public to ingest the Congressional data. Sign up for an API key from api.data.gov that you can use to access web services provided by Congress.gov. To learn more, view our GitHub repository.
+  title: Congress.gov Crsreport API
   version: '3'
 servers:
 - url: /v3
@@ -18,7 +16,6 @@ paths:
       tags:
       - crsreport
       summary: Returns Congressional Research Service (CRS) report data from the API
-      description: Returns Congressional Research Service (CRS) report data from the API
       parameters:
       - $ref: '#/components/parameters/format'
       - $ref: '#/components/parameters/offset'
@@ -37,12 +34,13 @@ paths:
                 $ref: '#/components/schemas/CrsReport'
         '400':
           description: Invalid status value
+      operationId: getCrsreport
+      x-operation-id-source: derived
   /crsreport/{reportNumber}:
     get:
       tags:
       - crsreport
       summary: Returns Congressional Research Service (CRS) report data from the API
-      description: Returns Congressional Research Service (CRS) report data from the API
       parameters:
       - $ref: '#/components/parameters/crsReportNumber'
       - $ref: '#/components/parameters/format'
@@ -58,25 +56,63 @@ paths:
                 $ref: '#/components/schemas/CrsReportDetail'
         '400':
           description: Invalid status value
+      operationId: getCrsreportByReportNumber
+      x-operation-id-source: derived
 components:
-  schemas:
+  parameters:
     format:
-      type: object
-      properties:
-        format:
-          type: string
-          example: PDF
-      url:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
         type: string
-        format: url
-        example: https://www.congress.gov/crs_external_products/R/PDF/R47175/R47175.1.pdf
-    CrsReport:
+        default: xml
+        enum:
+        - xml
+        - json
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    crsReportNumber:
+      name: reportNumber
+      in: path
+      description: The number or ID of the report. For example, R47175.
+      required: true
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+  schemas:
+    author:
       type: object
       properties:
-        CRSReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/crsreport'
+        author:
+          type: string
+          example: Megan S. Lynch
     crsreport:
       type: object
       properties:
@@ -107,30 +143,6 @@ components:
         version:
           type: integer
           example: 145
-    author:
-      type: object
-      properties:
-        author:
-          type: string
-          example: Megan S. Lynch
-    relatedMaterial:
-      type: object
-      properties:
-        URL:
-          type: string
-          example: https://api.congress.gov/v3/law/93/pub/344
-        congress:
-          type: integer
-          example: 93
-        number:
-          type: string
-          example: 93-344
-        title:
-          type: string
-          example: Providing for budget allocations, and for other purposes.
-        type:
-          type: string
-          example: PUB
     CrsReportDetail:
       type: object
       properties:
@@ -180,59 +192,47 @@ components:
         version:
           type: integer
           example: 1
+    format:
+      type: object
+      properties:
+        format:
+          type: string
+          example: PDF
+      url:
+        type: string
+        format: url
+        example: https://www.congress.gov/crs_external_products/R/PDF/R47175/R47175.1.pdf
+    CrsReport:
+      type: object
+      properties:
+        CRSReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/crsreport'
     topic:
       type: object
       properties:
         topic:
           type: string
           example: Budget & Appropriations Procedure
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    crsReportNumber:
-      name: reportNumber
-      in: path
-      description: The number or ID of the report. For example, R47175.
-      required: true
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
+    relatedMaterial:
+      type: object
+      properties:
+        URL:
+          type: string
+          example: https://api.congress.gov/v3/law/93/pub/344
+        congress:
+          type: integer
+          example: 93
+        number:
+          type: string
+          example: 93-344
+        title:
+          type: string
+          example: Providing for budget allocations, and for other purposes.
+        type:
+          type: string
+          example: PUB
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
