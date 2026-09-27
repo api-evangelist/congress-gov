@@ -146,17 +146,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    chamber:
-      name: chamber
-      in: path
-      description: The chamber name. Value can be house, senate, or joint.
-      required: true
-      schema:
-        type: string
-        enum:
-        - house
-        - senate
-        - joint
     format:
       name: format
       in: query
@@ -168,6 +157,38 @@ components:
         enum:
         - xml
         - json
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    chamber:
+      name: chamber
+      in: path
+      description: The chamber name. Value can be house, senate, or joint.
+      required: true
+      schema:
+        type: string
+        enum:
+        - house
+        - senate
+        - joint
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
     jacketNumber:
       name: jacketNumber
       in: path
@@ -182,20 +203,6 @@ components:
       required: false
       schema:
         type: integer
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
     congress:
       name: congress
       in: path
@@ -204,35 +211,7 @@ components:
       schema:
         type: integer
         format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
   schemas:
-    CommitteePrintDetailText:
-      type: array
-      items:
-        $ref: '#/components/schemas/committeePrintText'
-    committeePrintCommittees:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Rules Committee
-        systemCode:
-          type: string
-          example: hsru00
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/house/hsru00?format=json
-    CommitteePrint:
-      type: array
-      items:
-        $ref: '#/components/schemas/committeePrints'
     associatedBill:
       type: object
       properties:
@@ -249,26 +228,10 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/bill/116/hr/6395?format=json
-    committeePrints:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: House
-        congress:
-          type: integer
-          example: 117
-        jacketNumber:
-          type: integer
-          example: 48144
-        updateDate:
-          type: string
-          format: date-time
-          example: '2022-08-01 21:19:33+00:00'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee-print/117/house/48144?format=json
+    CommitteePrintDetailText:
+      type: array
+      items:
+        $ref: '#/components/schemas/committeePrintText'
     CommitteePrintDetail:
       type: object
       properties:
@@ -312,6 +275,10 @@ components:
           type: string
           format: date-time
           example: '2022-08-01 21:19:33+00:00'
+    CommitteePrint:
+      type: array
+      items:
+        $ref: '#/components/schemas/committeePrints'
     committeePrintText:
       type: object
       properties:
@@ -322,6 +289,39 @@ components:
           type: string
           format: url
           example: https://www.congress.gov/117/cprt/HPRT48144/CPRT-117HPRT48144.htm
+    committeePrintCommittees:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Rules Committee
+        systemCode:
+          type: string
+          example: hsru00
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee/house/hsru00?format=json
+    committeePrints:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: House
+        congress:
+          type: integer
+          example: 117
+        jacketNumber:
+          type: integer
+          example: 48144
+        updateDate:
+          type: string
+          format: date-time
+          example: '2022-08-01 21:19:33+00:00'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee-print/117/house/48144?format=json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

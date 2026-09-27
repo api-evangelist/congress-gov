@@ -115,14 +115,24 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
       schema:
         type: integer
-        format: int32
     chamber:
       name: chamber
       in: path
@@ -141,17 +151,6 @@ components:
       required: true
       schema:
         type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
     limit:
       name: limit
       in: query
@@ -159,13 +158,14 @@ components:
       required: false
       schema:
         type: integer
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
       schema:
         type: integer
+        format: int32
   schemas:
     associatedMeeting:
       type: object
@@ -177,6 +177,53 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/committee-meeting/117/house/115266?format=json
+    formats:
+      type: object
+      properties:
+        type:
+          type: string
+          example: Formatted Text
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/117/bills/hr3076/BILLS-117hr3076enr.htm
+    subcommittees:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Investigations and Oversight Subcommittee
+        systemCode:
+          type: string
+          example: hspw01
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
+    Hearings:
+      type: array
+      items:
+        $ref: '#/components/schemas/hearing'
+    hearing:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: House
+        congress:
+          type: integer
+          example: 117
+        jacketNumber:
+          type: integer
+          example: 48144
+        updateDate:
+          type: string
+          format: date-time
+          example: '2022-08-01 21:19:33+00:00'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/hearing/117/house/41365?format=json
     HearingDetail:
       type: object
       properties:
@@ -218,53 +265,6 @@ components:
           type: string
           format: date-time
           example: '2025-11-04T03:21:12Z'
-    subcommittees:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Investigations and Oversight Subcommittee
-        systemCode:
-          type: string
-          example: hspw01
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
-    hearing:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: House
-        congress:
-          type: integer
-          example: 117
-        jacketNumber:
-          type: integer
-          example: 48144
-        updateDate:
-          type: string
-          format: date-time
-          example: '2022-08-01 21:19:33+00:00'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/hearing/117/house/41365?format=json
-    formats:
-      type: object
-      properties:
-        type:
-          type: string
-          example: Formatted Text
-        url:
-          type: string
-          format: url
-          example: https://www.congress.gov/117/bills/hr3076/BILLS-117hr3076enr.htm
-    Hearings:
-      type: array
-      items:
-        $ref: '#/components/schemas/hearing'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

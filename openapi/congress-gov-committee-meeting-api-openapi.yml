@@ -119,17 +119,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    chamber:
-      name: chamber
-      in: path
-      description: The chamber name. Value can be house, senate, or joint.
-      required: true
-      schema:
-        type: string
-        enum:
-        - house
-        - senate
-        - joint
     format:
       name: format
       in: query
@@ -141,17 +130,10 @@ components:
         enum:
         - xml
         - json
-    eventId:
-      name: eventId
-      in: path
-      required: true
-      description: The event identifier. For example, the value can be 115538.
-      schema:
-        type: string
-    limit:
-      name: limit
+    offset:
+      name: offset
       in: query
-      description: The number of records returned. The maximum limit is 250.
+      description: The starting record returned. 0 is the first record.
       required: false
       schema:
         type: integer
@@ -162,6 +144,17 @@ components:
       required: false
       schema:
         type: string
+    chamber:
+      name: chamber
+      in: path
+      description: The chamber name. Value can be house, senate, or joint.
+      required: true
+      schema:
+        type: string
+        enum:
+        - house
+        - senate
+        - joint
     fromDateTime:
       name: fromDateTime
       in: query
@@ -169,6 +162,13 @@ components:
       required: false
       schema:
         type: string
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
     congress:
       name: congress
       in: path
@@ -177,79 +177,34 @@ components:
       schema:
         type: integer
         format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
+    eventId:
+      name: eventId
+      in: path
+      required: true
+      description: The event identifier. For example, the value can be 115538.
       schema:
-        type: integer
+        type: string
   schemas:
-    witness:
+    committeeMeetings:
       type: object
       properties:
-        name:
+        chamber:
           type: string
-          example: The Honorable John Williams
-        organization:
+          example: House
+        congress:
+          type: integer
+          example: 117
+        eventid:
           type: string
-          example: United Auburn Rancheria
-        position:
+          example: '115522'
+        updateDate:
           type: string
-          example: Vice Chairman
-    meetingdocument:
-      type: object
-      properties:
-        description:
-          type: string
-          example: ''
-        documentType:
-          type: string
-          example: 'Support Document '
-        format:
-          type: string
-          example: PDF
-        name:
-          type: string
-          example: Hearing Notice
+          format: date-time
+          example: '2022-08-01 21:19:33+00:00'
         url:
           type: string
           format: url
-          example: https://www.congress.gov/118/meeting/house/115538/documents/HHRG-118-II24-20230324-SD001.pdf
-    relatedItem:
-      type: object
-      properties:
-        bills:
-          type: array
-          items:
-            $ref: '#/components/schemas/associatedBill'
-        nominations:
-          type: array
-        treaties:
-          type: array
-    video:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Legislative Hearing on H.R. 1246 and H.R. 1532 | Indian and Insular Affairs Subcommittee
-        url:
-          type: string
-          format: url
-          example: https://www.congress.gov/event/118th-Congress/house-event/115538
-    subcommittees:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Investigations and Oversight Subcommittee
-        systemCode:
-          type: string
-          example: hspw01
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
+          example: https://api.congress.gov/v3/committee-meeting/118/house/115522?format=json
     CommitteeMeetingDetail:
       type: object
       properties:
@@ -314,10 +269,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/witness'
-    CommitteeMeeting:
-      type: array
-      items:
-        $ref: '#/components/schemas/committeeMeetings'
+    video:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Legislative Hearing on H.R. 1246 and H.R. 1532 | Indian and Insular Affairs Subcommittee
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/event/118th-Congress/house-event/115538
     associatedBill:
       type: object
       properties:
@@ -334,26 +295,6 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/bill/116/hr/6395?format=json
-    committeeMeetings:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: House
-        congress:
-          type: integer
-          example: 117
-        eventid:
-          type: string
-          example: '115522'
-        updateDate:
-          type: string
-          format: date-time
-          example: '2022-08-01 21:19:33+00:00'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee-meeting/118/house/115522?format=json
     witnessDocument:
       type: object
       properties:
@@ -367,6 +308,65 @@ components:
           type: string
           format: url
           example: https://www.congress.gov/118/meeting/house/115538/witnesses/HHRG-118-II24-Wstate-NewlandB-20230324.pdf
+    relatedItem:
+      type: object
+      properties:
+        bills:
+          type: array
+          items:
+            $ref: '#/components/schemas/associatedBill'
+        nominations:
+          type: array
+        treaties:
+          type: array
+    subcommittees:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Investigations and Oversight Subcommittee
+        systemCode:
+          type: string
+          example: hspw01
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
+    witness:
+      type: object
+      properties:
+        name:
+          type: string
+          example: The Honorable John Williams
+        organization:
+          type: string
+          example: United Auburn Rancheria
+        position:
+          type: string
+          example: Vice Chairman
+    meetingdocument:
+      type: object
+      properties:
+        description:
+          type: string
+          example: ''
+        documentType:
+          type: string
+          example: 'Support Document '
+        format:
+          type: string
+          example: PDF
+        name:
+          type: string
+          example: Hearing Notice
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/118/meeting/house/115538/documents/HHRG-118-II24-20230324-SD001.pdf
+    CommitteeMeeting:
+      type: array
+      items:
+        $ref: '#/components/schemas/committeeMeetings'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

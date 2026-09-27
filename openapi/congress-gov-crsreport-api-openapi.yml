@@ -71,10 +71,24 @@ components:
         enum:
         - xml
         - json
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     toDateTime:
       name: toDateTime
       in: query
       description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
       required: false
       schema:
         type: string
@@ -85,13 +99,6 @@ components:
       required: false
       schema:
         type: integer
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
     crsReportNumber:
       name: reportNumber
       in: path
@@ -99,20 +106,7 @@ components:
       required: true
       schema:
         type: string
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
   schemas:
-    author:
-      type: object
-      properties:
-        author:
-          type: string
-          example: Megan S. Lynch
     crsreport:
       type: object
       properties:
@@ -202,19 +196,6 @@ components:
         type: string
         format: url
         example: https://www.congress.gov/crs_external_products/R/PDF/R47175/R47175.1.pdf
-    CrsReport:
-      type: object
-      properties:
-        CRSReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/crsreport'
-    topic:
-      type: object
-      properties:
-        topic:
-          type: string
-          example: Budget & Appropriations Procedure
     relatedMaterial:
       type: object
       properties:
@@ -233,6 +214,25 @@ components:
         type:
           type: string
           example: PUB
+    CrsReport:
+      type: object
+      properties:
+        CRSReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/crsreport'
+    topic:
+      type: object
+      properties:
+        topic:
+          type: string
+          example: Budget & Appropriations Procedure
+    author:
+      type: object
+      properties:
+        author:
+          type: string
+          example: Megan S. Lynch
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

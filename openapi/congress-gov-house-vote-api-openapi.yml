@@ -142,30 +142,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    HouseVoteNumber:
-      allOf:
-      - $ref: '#/components/schemas/HouseVoteNumberBase'
-      - type: object
-        properties:
-          votePartyTotal:
-            type: array
-            items:
-              $ref: '#/components/schemas/voteParty'
-          voteQuestion:
-            type: string
-            example: On Passage
-    HouseVoteMembers:
-      allOf:
-      - $ref: '#/components/schemas/HouseVoteNumberBase'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/houseVoteResults'
-          voteQuestion:
-            type: string
-            example: On Passage
     HouseVote:
       type: object
       properties:
@@ -212,35 +188,18 @@ components:
         voteType:
           type: string
           example: Yea-and-Nay
-    party:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Republican
-        type:
-          type: string
-          example: R
-    voteParty:
-      type: object
-      properties:
-        nayTotal:
-          type: integer
-          example: 0
-        notVotingTotal:
-          type: integer
-          example: 6
-        presentTotal:
-          type: integer
-          example: 0
-        voteParty:
-          type: string
-          example: R
-        yeaTotal:
-          type: integer
-          example: 213
-        party:
-          $ref: '#/components/schemas/party'
+    HouseVoteNumber:
+      allOf:
+      - $ref: '#/components/schemas/HouseVoteNumberBase'
+      - type: object
+        properties:
+          votePartyTotal:
+            type: array
+            items:
+              $ref: '#/components/schemas/voteParty'
+          voteQuestion:
+            type: string
+            example: On Passage
     HouseVoteNumberBase:
       type: object
       properties:
@@ -283,6 +242,27 @@ components:
         voteType:
           type: string
           example: Yea-and-Nay
+    HouseVoteMembers:
+      allOf:
+      - $ref: '#/components/schemas/HouseVoteNumberBase'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/houseVoteResults'
+          voteQuestion:
+            type: string
+            example: On Passage
+    party:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Republican
+        type:
+          type: string
+          example: R
     houseVoteResults:
       type: object
       properties:
@@ -304,6 +284,26 @@ components:
         voteState:
           type: string
           example: AL
+    voteParty:
+      type: object
+      properties:
+        nayTotal:
+          type: integer
+          example: 0
+        notVotingTotal:
+          type: integer
+          example: 6
+        presentTotal:
+          type: integer
+          example: 0
+        voteParty:
+          type: string
+          example: R
+        yeaTotal:
+          type: integer
+          example: 213
+        party:
+          $ref: '#/components/schemas/party'
   parameters:
     format:
       name: format
@@ -316,10 +316,10 @@ components:
         enum:
         - xml
         - json
-    limit:
-      name: limit
+    offset:
+      name: offset
       in: query
-      description: The number of records returned. The maximum limit is 250.
+      description: The starting record returned. 0 is the first record.
       required: false
       schema:
         type: integer
@@ -328,6 +328,13 @@ components:
       in: path
       description: The assigned roll call vote number. For example, 17.
       required: true
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
       schema:
         type: integer
     session:
@@ -348,13 +355,6 @@ components:
       schema:
         type: integer
         format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

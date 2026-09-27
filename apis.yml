@@ -8,17 +8,20 @@ description: >
   the Data.gov signup page. Responses are available in JSON or XML format, with
   version 3 (v3) as the current release.
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - libraryofcongress/api.congress.gov
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -52,9 +55,10 @@ tags:
   - Nominations
   - Congressional Record
   - US Federal
+  - Government Data
 apis:
 - aid: congress-gov:congress-gov-amendments-api
-  name: Congress.gov API amendments API
+  name: Congress.gov API Amendments API
   description: Returns amendment data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -90,7 +94,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-bill-api
-  name: Congress.gov API bill API
+  name: Congress.gov API Bill API
   description: Returns bill data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -126,7 +130,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-bound-congressional-record-api
-  name: Congress.gov API bound-congressional-record API
+  name: Congress.gov API Bound Congressional Record API
   description: Returns bound Congressional Record data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -160,7 +164,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-committee-api
-  name: Congress.gov API committee API
+  name: Congress.gov API Committee API
   description: Returns committee data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -194,7 +198,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-committee-meeting-api
-  name: Congress.gov API committee-meeting API
+  name: Congress.gov API Committee Meeting API
   description: Returns committee meeting data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -228,7 +232,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-committee-print-api
-  name: Congress.gov API committee-print API
+  name: Congress.gov API Committee Print API
   description: Returns committee print data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -262,7 +266,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-committee-report-api
-  name: Congress.gov API committee-report API
+  name: Congress.gov API Committee Report API
   description: Returns committee report data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -296,7 +300,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-congress-api
-  name: Congress.gov API congress API
+  name: Congress.gov API Congress API
   description: Returns congress and congressional sessions data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -332,7 +336,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-congressional-record-api
-  name: Congress.gov API congressional-record API
+  name: Congress.gov API Congressional Record API
   description: Returns Congressional Record data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -368,7 +372,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-crsreport-api
-  name: Congress.gov API crsreport API
+  name: Congress.gov API Crsreport API
   description: Returns Congressional Research Service (CRS) report data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -402,7 +406,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-daily-congressional-record-api
-  name: Congress.gov API daily-congressional-record API
+  name: Congress.gov API Daily Congressional Record API
   description: Returns daily Congressional Record data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -436,7 +440,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-hearing-api
-  name: Congress.gov API hearing API
+  name: Congress.gov API Hearing API
   description: Returns hearing data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -472,7 +476,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-house-communication-api
-  name: Congress.gov API house-communication API
+  name: Congress.gov API House Communication API
   description: Returns House communication data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -506,7 +510,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-house-requirement-api
-  name: Congress.gov API house-requirement API
+  name: Congress.gov API House Requirement API
   description: Returns House requirement data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -540,7 +544,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-house-vote-api
-  name: Congress.gov API house-vote API
+  name: Congress.gov API House Vote API
   description: '[BETA] Returns House of Representatives roll call vote data from the API'
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -574,7 +578,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-member-api
-  name: Congress.gov API member API
+  name: Congress.gov API Member API
   description: Returns member data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -610,7 +614,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-nomination-api
-  name: Congress.gov API nomination API
+  name: Congress.gov API Nomination API
   description: Returns nomination data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -644,7 +648,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-senate-communication-api
-  name: Congress.gov API senate-communication API
+  name: Congress.gov API Senate Communication API
   description: Returns Senate communication data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -678,7 +682,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-summaries-api
-  name: Congress.gov API summaries API
+  name: Congress.gov API Summaries API
   description: Returns summaries data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3
@@ -714,7 +718,7 @@ apis:
   - type: FinOps
     url: finops/congress-gov-finops.yml
 - aid: congress-gov:congress-gov-treaty-api
-  name: Congress.gov API treaty API
+  name: Congress.gov API Treaty API
   description: Returns treaty data from the API
   humanURL: https://api.congress.gov/
   baseURL: https://api.congress.gov/v3

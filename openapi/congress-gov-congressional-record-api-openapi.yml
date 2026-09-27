@@ -39,54 +39,17 @@ paths:
       operationId: getCongressionalRecord
       x-operation-id-source: derived
 components:
-  parameters:
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    m:
-      name: m
-      in: query
-      description: The month the issue was published. For example, the value can be 6.
-      required: false
-      schema:
-        type: integer
-    y:
-      name: y
-      in: query
-      description: The year the issue was published. For example, the value can be 2022.
-      required: false
-      schema:
-        type: integer
-    d:
-      name: d
-      in: query
-      description: The day the issue was published. For example, the value can be 28.
-      required: false
-      schema:
-        type: integer
   schemas:
+    CongressionalRecord:
+      type: object
+      properties:
+        IndexStart:
+          type: integer
+          example: 1
+        Issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/issues'
     issues:
       type: object
       properties:
@@ -217,16 +180,53 @@ components:
         Volume:
           type: string
           example: '168'
-    CongressionalRecord:
-      type: object
-      properties:
-        IndexStart:
-          type: integer
-          example: 1
-        Issues:
-          type: array
-          items:
-            $ref: '#/components/schemas/issues'
+  parameters:
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    y:
+      name: y
+      in: query
+      description: The year the issue was published. For example, the value can be 2022.
+      required: false
+      schema:
+        type: integer
+    m:
+      name: m
+      in: query
+      description: The month the issue was published. For example, the value can be 6.
+      required: false
+      schema:
+        type: integer
+    d:
+      name: d
+      in: query
+      description: The day the issue was published. For example, the value can be 28.
+      required: false
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
