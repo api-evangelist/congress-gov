@@ -97,24 +97,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
     toDateTime:
       name: toDateTime
       in: query
@@ -129,20 +111,6 @@ components:
       required: false
       schema:
         type: string
-    sort:
-      name: sort
-      in: query
-      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
-      required: false
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
     congress:
       name: congress
       in: path
@@ -158,6 +126,38 @@ components:
       required: true
       schema:
         type: string
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    sort:
+      name: sort
+      in: query
+      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
+      required: false
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
   schemas:
     summariesArray:
       type: object

@@ -188,6 +188,18 @@ components:
         voteType:
           type: string
           example: Yea-and-Nay
+    HouseVoteMembers:
+      allOf:
+      - $ref: '#/components/schemas/HouseVoteNumberBase'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/houseVoteResults'
+          voteQuestion:
+            type: string
+            example: On Passage
     HouseVoteNumber:
       allOf:
       - $ref: '#/components/schemas/HouseVoteNumberBase'
@@ -242,18 +254,26 @@ components:
         voteType:
           type: string
           example: Yea-and-Nay
-    HouseVoteMembers:
-      allOf:
-      - $ref: '#/components/schemas/HouseVoteNumberBase'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/houseVoteResults'
-          voteQuestion:
-            type: string
-            example: On Passage
+    voteParty:
+      type: object
+      properties:
+        nayTotal:
+          type: integer
+          example: 0
+        notVotingTotal:
+          type: integer
+          example: 6
+        presentTotal:
+          type: integer
+          example: 0
+        voteParty:
+          type: string
+          example: R
+        yeaTotal:
+          type: integer
+          example: 213
+        party:
+          $ref: '#/components/schemas/party'
     party:
       type: object
       properties:
@@ -284,45 +304,7 @@ components:
         voteState:
           type: string
           example: AL
-    voteParty:
-      type: object
-      properties:
-        nayTotal:
-          type: integer
-          example: 0
-        notVotingTotal:
-          type: integer
-          example: 6
-        presentTotal:
-          type: integer
-          example: 0
-        voteParty:
-          type: string
-          example: R
-        yeaTotal:
-          type: integer
-          example: 213
-        party:
-          $ref: '#/components/schemas/party'
   parameters:
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
     voteNumber:
       name: voteNumber
       in: path
@@ -330,6 +312,14 @@ components:
       required: true
       schema:
         type: integer
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
+      schema:
+        type: integer
+        format: int32
     limit:
       name: limit
       in: query
@@ -347,14 +337,24 @@ components:
         enum:
         - 1
         - 2
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
       schema:
         type: integer
-        format: int32
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

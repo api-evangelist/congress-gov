@@ -113,28 +113,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    houseCommunication:
+    subcommittees:
       type: object
       properties:
-        chamber:
+        name:
           type: string
-          example: House
-        communicationType:
-          $ref: '#/components/schemas/communicationType'
-        congressNumber:
-          type: integer
-          example: 117
-        number:
+          example: Investigations and Oversight Subcommittee
+        systemCode:
           type: string
-          example: '2057'
-        updateDate:
-          type: string
-          format: date
-          example: '2021-09-01'
+          example: hspw01
         url:
           type: string
           format: url
-          example: https://api.congress.gov/v3/house-communication/117/ec/2057?format=json
+          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
+    HouseCommunications:
+      type: object
+      properties:
+        houseCoummunications:
+          type: array
+          items:
+            $ref: '#/components/schemas/houseCommunication'
     HouseCommunicationTypeNumber:
       type: object
       properties:
@@ -202,6 +200,28 @@ components:
           type: string
           format: date
           example: '2024-09-03'
+    houseCommunication:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: House
+        communicationType:
+          $ref: '#/components/schemas/communicationType'
+        congressNumber:
+          type: integer
+          example: 117
+        number:
+          type: string
+          example: '2057'
+        updateDate:
+          type: string
+          format: date
+          example: '2021-09-01'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/house-communication/117/ec/2057?format=json
     communicationType:
       type: object
       properties:
@@ -211,27 +231,36 @@ components:
         name:
           type: string
           example: Executive Communication
-    subcommittees:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Investigations and Oversight Subcommittee
-        systemCode:
-          type: string
-          example: hspw01
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
-    HouseCommunications:
-      type: object
-      properties:
-        houseCoummunications:
-          type: array
-          items:
-            $ref: '#/components/schemas/houseCommunication'
   parameters:
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
+      schema:
+        type: integer
+        format: int32
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    communicationNumber:
+      name: communicationNumber
+      in: path
+      description: The communication’s assigned number. For example, the value can be 3324.
+      required: true
+      schema:
+        type: integer
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     format:
       name: format
       in: query
@@ -255,35 +284,6 @@ components:
         - ml
         - pm
         - pt
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
-      schema:
-        type: integer
-        format: int32
-    communicationNumber:
-      name: communicationNumber
-      in: path
-      description: The communication’s assigned number. For example, the value can be 3324.
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
