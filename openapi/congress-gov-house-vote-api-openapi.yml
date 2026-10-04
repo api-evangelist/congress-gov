@@ -141,77 +141,58 @@ paths:
       operationId: getHouseVoteByCongressBySessionByVoteNumberMembers
       x-operation-id-source: derived
 components:
+  parameters:
+    voteNumber:
+      name: voteNumber
+      in: path
+      description: The assigned roll call vote number. For example, 17.
+      required: true
+      schema:
+        type: integer
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
+      schema:
+        type: integer
+        format: int32
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    session:
+      name: session
+      in: path
+      description: The session number. The value can be 1 or 2.
+      required: true
+      schema:
+        type: integer
+        enum:
+        - 1
+        - 2
   schemas:
-    HouseVote:
-      type: object
-      properties:
-        congress:
-          type: integer
-          example: 119
-        identifier:
-          type: integer
-          example: 1191202517
-        legislationNumber:
-          type: string
-          example: '30'
-        legislationType:
-          type: string
-          example: HR
-        legislationUrl:
-          type: string
-          format: url
-          example: https://congress.gov/bill/119/house-bill/30
-        result:
-          type: string
-          example: Passed
-        rollCallNumber:
-          type: integer
-          example: 17
-        sessionNumber:
-          type: integer
-          example: 1
-        sourceDataURL:
-          type: string
-          example: https://clerk.house.gov/evs/2025/roll017.xml
-        startDate:
-          type: string
-          format: date-time
-          example: '2025-01-16T11:00:00-05:00'
-        updateDate:
-          type: string
-          format: date-time
-          example: '2025-04-18T08:44:47-04:00'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/house-vote/119/1/17
-        voteType:
-          type: string
-          example: Yea-and-Nay
-    HouseVoteMembers:
-      allOf:
-      - $ref: '#/components/schemas/HouseVoteNumberBase'
-      - type: object
-        properties:
-          results:
-            type: array
-            items:
-              $ref: '#/components/schemas/houseVoteResults'
-          voteQuestion:
-            type: string
-            example: On Passage
-    HouseVoteNumber:
-      allOf:
-      - $ref: '#/components/schemas/HouseVoteNumberBase'
-      - type: object
-        properties:
-          votePartyTotal:
-            type: array
-            items:
-              $ref: '#/components/schemas/voteParty'
-          voteQuestion:
-            type: string
-            example: On Passage
     HouseVoteNumberBase:
       type: object
       properties:
@@ -254,6 +235,30 @@ components:
         voteType:
           type: string
           example: Yea-and-Nay
+    HouseVoteNumber:
+      allOf:
+      - $ref: '#/components/schemas/HouseVoteNumberBase'
+      - type: object
+        properties:
+          votePartyTotal:
+            type: array
+            items:
+              $ref: '#/components/schemas/voteParty'
+          voteQuestion:
+            type: string
+            example: On Passage
+    HouseVoteMembers:
+      allOf:
+      - $ref: '#/components/schemas/HouseVoteNumberBase'
+      - type: object
+        properties:
+          results:
+            type: array
+            items:
+              $ref: '#/components/schemas/houseVoteResults'
+          voteQuestion:
+            type: string
+            example: On Passage
     voteParty:
       type: object
       properties:
@@ -304,57 +309,52 @@ components:
         voteState:
           type: string
           example: AL
-  parameters:
-    voteNumber:
-      name: voteNumber
-      in: path
-      description: The assigned roll call vote number. For example, 17.
-      required: true
-      schema:
-        type: integer
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
-      schema:
-        type: integer
-        format: int32
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
-    session:
-      name: session
-      in: path
-      description: The session number. The value can be 1 or 2.
-      required: true
-      schema:
-        type: integer
-        enum:
-        - 1
-        - 2
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
+    HouseVote:
+      type: object
+      properties:
+        congress:
+          type: integer
+          example: 119
+        identifier:
+          type: integer
+          example: 1191202517
+        legislationNumber:
+          type: string
+          example: '30'
+        legislationType:
+          type: string
+          example: HR
+        legislationUrl:
+          type: string
+          format: url
+          example: https://congress.gov/bill/119/house-bill/30
+        result:
+          type: string
+          example: Passed
+        rollCallNumber:
+          type: integer
+          example: 17
+        sessionNumber:
+          type: integer
+          example: 1
+        sourceDataURL:
+          type: string
+          example: https://clerk.house.gov/evs/2025/roll017.xml
+        startDate:
+          type: string
+          format: date-time
+          example: '2025-01-16T11:00:00-05:00'
+        updateDate:
+          type: string
+          format: date-time
+          example: '2025-04-18T08:44:47-04:00'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/house-vote/119/1/17
+        voteType:
+          type: string
+          example: Yea-and-Nay
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

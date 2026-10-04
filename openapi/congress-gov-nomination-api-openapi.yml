@@ -195,48 +195,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    nominationNumber:
-      name: nominationNumber
-      in: path
-      description: The nomination’s assigned number. For example, the value can be 389.
-      required: true
-      schema:
-        type: integer
-    ordinal:
-      name: ordinal
-      in: path
-      description: The ordinal number. For example, the value can be 1
-      required: true
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
     format:
       name: format
       in: query
@@ -248,6 +206,34 @@ components:
         enum:
         - xml
         - json
+    ordinal:
+      name: ordinal
+      in: path
+      description: The ordinal number. For example, the value can be 1
+      required: true
+      schema:
+        type: integer
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     congress:
       name: congress
       in: path
@@ -256,7 +242,71 @@ components:
       schema:
         type: integer
         format: int32
+    nominationNumber:
+      name: nominationNumber
+      in: path
+      description: The nomination’s assigned number. For example, the value can be 389.
+      required: true
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
   schemas:
+    senatecommittee:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Armed Services Committee
+        systemCode:
+          type: string
+          example: ssas00
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee/senate/ssas00?format=json
+    nominationCommittee:
+      type: object
+      properties:
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Activity'
+        chamber:
+          type: string
+          example: Senate
+        name:
+          type: string
+          example: Judiciary Committee
+        systemCode:
+          type: string
+          example: ssju00
+        type:
+          type: string
+          example: Standing
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/committee/senate/ssju00?format=json
+    Nominations:
+      type: object
+      properties:
+        nominations:
+          type: array
+          items:
+            $ref: '#/components/schemas/nomination'
+    NominationActions:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/nomineeAction'
     nominationType:
       type: object
       properties:
@@ -266,27 +316,6 @@ components:
         isMilitary:
           type: boolean
           example: true
-    NominationActions:
-      type: object
-      properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/nomineeAction'
-    NominationNominee:
-      type: object
-      properties:
-        nominees:
-          type: array
-          items:
-            $ref: '#/components/schemas/nominee'
-    Nominations:
-      type: object
-      properties:
-        nominations:
-          type: array
-          items:
-            $ref: '#/components/schemas/nomination'
     nomination:
       type: object
       properties:
@@ -324,13 +353,6 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/nomination/117/2804?format=json
-    NominationCommittees:
-      type: object
-      properties:
-        committees:
-          type: array
-          items:
-            $ref: '#/components/schemas/nominationCommittee'
     nominationHearing:
       type: object
       properties:
@@ -350,6 +372,59 @@ components:
         number:
           type: integer
           example: 694
+    NominationNominee:
+      type: object
+      properties:
+        nominees:
+          type: array
+          items:
+            $ref: '#/components/schemas/nominee'
+    NominationCommittees:
+      type: object
+      properties:
+        committees:
+          type: array
+          items:
+            $ref: '#/components/schemas/nominationCommittee'
+    nominee:
+      type: object
+      properties:
+        nomineeCount:
+          type: integer
+          example: 1
+        ordinal:
+          type: integer
+          example: 1
+        organization:
+          type: string
+          example: Federal Maritime Commission
+        positionTitle:
+          type: string
+          example: Federal Maritime Commissioner
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/nomination/118/16/1?format=json
+    Activity:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          example: '2019-01-01'
+        name:
+          type: string
+          example: Reported By
+    latestNominationAction:
+      type: object
+      properties:
+        actionDate:
+          type: string
+          format: date
+          example: '2022-12-07'
+        text:
+          type: string
+          example: Received in the Senate and referred to the Committee on Armed Services.
     Nomination:
       type: object
       properties:
@@ -429,52 +504,6 @@ components:
               type: string
               format: date-time
               example: '2025-10-22T15:58:44Z'
-    latestNominationAction:
-      type: object
-      properties:
-        actionDate:
-          type: string
-          format: date
-          example: '2022-12-07'
-        text:
-          type: string
-          example: Received in the Senate and referred to the Committee on Armed Services.
-    senatecommittee:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Armed Services Committee
-        systemCode:
-          type: string
-          example: ssas00
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/senate/ssas00?format=json
-    nominationCommittee:
-      type: object
-      properties:
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Activity'
-        chamber:
-          type: string
-          example: Senate
-        name:
-          type: string
-          example: Judiciary Committee
-        systemCode:
-          type: string
-          example: ssju00
-        type:
-          type: string
-          example: Standing
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/committee/senate/ssju00?format=json
     nomineeAction:
       type: object
       properties:
@@ -495,16 +524,6 @@ components:
         type:
           type: string
           example: IntroReferral
-    Activity:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-          example: '2019-01-01'
-        name:
-          type: string
-          example: Reported By
     NominationHearing:
       type: object
       properties:
@@ -512,25 +531,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/nominationHearing'
-    nominee:
-      type: object
-      properties:
-        nomineeCount:
-          type: integer
-          example: 1
-        ordinal:
-          type: integer
-          example: 1
-        organization:
-          type: string
-          example: Federal Maritime Commission
-        positionTitle:
-          type: string
-          example: Federal Maritime Commissioner
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/nomination/118/16/1?format=json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

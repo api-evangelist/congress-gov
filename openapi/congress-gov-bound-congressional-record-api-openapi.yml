@@ -115,13 +115,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BoundCongressionalRecord:
-      type: object
-      properties:
-        boundCongressionalRecord:
-          type: array
-          items:
-            $ref: '#/components/schemas/boundCongressionalRecord'
     boundCongressionalRecord:
       type: object
       properties:
@@ -145,18 +138,29 @@ components:
         volumeNumber:
           type: integer
           example: 136
+    BoundCongressionalRecord:
+      type: object
+      properties:
+        boundCongressionalRecord:
+          type: array
+          items:
+            $ref: '#/components/schemas/boundCongressionalRecord'
   parameters:
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
     day:
       name: day
       in: path
       description: The specified day of the bound Congressional record, for example 18.
-      required: false
-      schema:
-        type: integer
-    month:
-      name: month
-      in: path
-      description: The specified month of the bound Congressional record, for example 4 for April.
       required: false
       schema:
         type: integer
@@ -174,6 +178,13 @@ components:
       required: false
       schema:
         type: integer
+    month:
+      name: month
+      in: path
+      description: The specified month of the bound Congressional record, for example 4 for April.
+      required: false
+      schema:
+        type: integer
     year:
       name: year
       in: path
@@ -181,17 +192,6 @@ components:
       required: false
       schema:
         type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

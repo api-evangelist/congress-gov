@@ -58,6 +58,13 @@ components:
         enum:
         - xml
         - json
+    m:
+      name: m
+      in: query
+      description: The month the issue was published. For example, the value can be 6.
+      required: false
+      schema:
+        type: integer
     limit:
       name: limit
       in: query
@@ -76,13 +83,6 @@ components:
       name: d
       in: query
       description: The day the issue was published. For example, the value can be 28.
-      required: false
-      schema:
-        type: integer
-    m:
-      name: m
-      in: query
-      description: The month the issue was published. For example, the value can be 6.
       required: false
       schema:
         type: integer

@@ -149,23 +149,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CommitteeReportsText:
-      type: array
-      items:
-        $ref: '#/components/schemas/committeereportsformats'
-    committeereportsformats:
-      type: object
-      properties:
-        isErrata:
-          type: string
-          example: N
-        type:
-          type: string
-          example: Formatted Text
-        url:
-          type: string
-          format: url
-          example: https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm
     committeeReports:
       type: object
       properties:
@@ -195,10 +178,23 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/bill/117hr570?format=json
-    CommitteeReports:
+    CommitteeReportsText:
       type: array
       items:
-        $ref: '#/components/schemas/committeeReports'
+        $ref: '#/components/schemas/committeereportsformats'
+    committeereportsformats:
+      type: object
+      properties:
+        isErrata:
+          type: string
+          example: N
+        type:
+          type: string
+          example: Formatted Text
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm
     associatedBill:
       type: object
       properties:
@@ -252,7 +248,22 @@ components:
             title:
               type: string
               example: WILLIAM M. (MAC) THORNBERRY NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2021
+    CommitteeReports:
+      type: array
+      items:
+        $ref: '#/components/schemas/committeeReports'
   parameters:
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
     toDateTime:
       name: toDateTime
       in: query
@@ -260,30 +271,13 @@ components:
       required: false
       schema:
         type: string
-    fromDateTime:
-      name: fromDateTime
+    limit:
+      name: limit
       in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      description: The number of records returned. The maximum limit is 250.
       required: false
-      schema:
-        type: string
-    reportNumber:
-      name: reportNumber
-      in: path
-      description: The committee report’s assigned number. For example, the value can be 617.
-      required: true
       schema:
         type: integer
-    conference:
-      name: conference
-      in: query
-      description: Flag to indicate conference reports. Value can be true or false.
-      required: false
-      schema:
-        type: boolean
-        enum:
-        - true
-        - false
     reportType:
       name: reportType
       in: path
@@ -303,13 +297,6 @@ components:
       schema:
         type: integer
         format: int32
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
     offset:
       name: offset
       in: query
@@ -317,17 +304,30 @@ components:
       required: false
       schema:
         type: integer
-    format:
-      name: format
+    conference:
+      name: conference
       in: query
-      description: The data format. Value can be xml or json.
+      description: Flag to indicate conference reports. Value can be true or false.
+      required: false
+      schema:
+        type: boolean
+        enum:
+        - true
+        - false
+    reportNumber:
+      name: reportNumber
+      in: path
+      description: The committee report’s assigned number. For example, the value can be 617.
+      required: true
+      schema:
+        type: integer
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
       required: false
       schema:
         type: string
-        default: xml
-        enum:
-        - xml
-        - json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

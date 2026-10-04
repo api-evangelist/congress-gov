@@ -215,27 +215,17 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    toDateTime:
-      name: toDateTime
+    format:
+      name: format
       in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      description: The data format. Value can be xml or json.
       required: false
       schema:
         type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    stateCode:
-      name: stateCode
-      in: path
-      description: The two letter identifier for the state the member represents. For example, the value can be MI for Michigan.
-      required: true
-      schema:
-        type: string
+        default: xml
+        enum:
+        - xml
+        - json
     district:
       name: district
       in: path
@@ -243,15 +233,20 @@ components:
       required: true
       schema:
         type: integer
-    currentMember:
-      name: currentMember
+    fromDateTime:
+      name: fromDateTime
       in: query
-      description: The status of the member. Use true or false
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
       schema:
         type: string
-        enum:
-        - true
-        - false
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
     offset:
       name: offset
       in: query
@@ -266,24 +261,22 @@ components:
       required: true
       schema:
         type: string
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
+    stateCode:
+      name: stateCode
+      in: path
+      description: The two letter identifier for the state the member represents. For example, the value can be MI for Michigan.
+      required: true
       schema:
         type: string
-        default: xml
+    currentMember:
+      name: currentMember
+      in: query
+      description: The status of the member. Use true or false
+      schema:
+        type: string
         enum:
-        - xml
-        - json
+        - true
+        - false
     congress:
       name: congress
       in: path
@@ -292,11 +285,54 @@ components:
       schema:
         type: integer
         format: int32
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
   schemas:
+    sponsoredLegislation:
+      type: object
+      properties:
+        congress:
+          type: integer
+          example: 117
+        introducedDate:
+          type: string
+          format: date
+          example: '2022-06-16'
+        latestAction:
+          $ref: '#/components/schemas/latestAction'
+        number:
+          type: string
+          example: '4417'
+        policyArea:
+          $ref: '#/components/schemas/policyArea'
+        title:
+          type: string
+          example: Patent Trial and Appeal Board Reform Act of 2022
+        type:
+          type: string
+          example: S
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/bill/117/s/4417?format=json
     MemberSponsoredLegislation:
       type: array
       items:
         $ref: '#/components/schemas/sponsoredLegislation'
+    memberTerms:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: House of Representatives
+        startYear:
+          type: integer
+          example: 1991
     memberDetailTerms:
       type: object
       properties:
@@ -321,15 +357,68 @@ components:
         stateName:
           type: string
           example: Vermont
-    leadership:
+    Members:
       type: object
       properties:
-        congress:
-          type: integer
-          example: 113
-        type:
+        bioguideId:
           type: string
-          example: President Pro Tempore
+          example: N000147
+        depiction:
+          type: object
+          properties:
+            attribution:
+              type: string
+              example: Congressional Pictorial Directory
+            imageUrl:
+              type: string
+              format: url
+              example: https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg
+        name:
+          type: string
+          example: Norton, Eleanor Holmes
+        partyName:
+          type: string
+          example: Democratic
+        state:
+          type: string
+          example: District of Columbia
+        terms:
+          type: object
+          properties:
+            item:
+              type: array
+              items:
+                $ref: '#/components/schemas/memberTerms'
+        updateDate:
+          type: string
+          format: date-time
+          example: '2025-11-12T08:45:43Z'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/member/N000147?format=json
+    partyHistory:
+      type: object
+      properties:
+        partyAbbreviation:
+          type: string
+          example: D
+        partyName:
+          type: string
+          example: Democrat
+        startYear:
+          type: integer
+          example: 1975
+    latestAction:
+      type: object
+      properties:
+        actionDate:
+          type: string
+          format: date
+          example: '2022-06-16'
+        text:
+          type: string
+          example: Read twice and referred to the Committee on the Judiciary.
     Member:
       type: object
       properties:
@@ -402,110 +491,21 @@ components:
           type: string
           format: date-time
           example: '2022-11-07T13:42:19Z'
-    Members:
-      type: object
-      properties:
-        bioguideId:
-          type: string
-          example: N000147
-        depiction:
-          type: object
-          properties:
-            attribution:
-              type: string
-              example: Congressional Pictorial Directory
-            imageUrl:
-              type: string
-              format: url
-              example: https://www.congress.gov/img/member/116_dg_dc_norton_eleanor_200.jpg
-        name:
-          type: string
-          example: Norton, Eleanor Holmes
-        partyName:
-          type: string
-          example: Democratic
-        state:
-          type: string
-          example: District of Columbia
-        terms:
-          type: object
-          properties:
-            item:
-              type: array
-              items:
-                $ref: '#/components/schemas/memberTerms'
-        updateDate:
-          type: string
-          format: date-time
-          example: '2025-11-12T08:45:43Z'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/member/N000147?format=json
-    memberTerms:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: House of Representatives
-        startYear:
-          type: integer
-          example: 1991
-    latestAction:
-      type: object
-      properties:
-        actionDate:
-          type: string
-          format: date
-          example: '2022-06-16'
-        text:
-          type: string
-          example: Read twice and referred to the Committee on the Judiciary.
-    sponsoredLegislation:
-      type: object
-      properties:
-        congress:
-          type: integer
-          example: 117
-        introducedDate:
-          type: string
-          format: date
-          example: '2022-06-16'
-        latestAction:
-          $ref: '#/components/schemas/latestAction'
-        number:
-          type: string
-          example: '4417'
-        policyArea:
-          $ref: '#/components/schemas/policyArea'
-        title:
-          type: string
-          example: Patent Trial and Appeal Board Reform Act of 2022
-        type:
-          type: string
-          example: S
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/bill/117/s/4417?format=json
     policyArea:
       type: object
       properties:
         name:
           type: string
           example: Government Operations and Politics
-    partyHistory:
+    leadership:
       type: object
       properties:
-        partyAbbreviation:
-          type: string
-          example: D
-        partyName:
-          type: string
-          example: Democrat
-        startYear:
+        congress:
           type: integer
-          example: 1975
+          example: 113
+        type:
+          type: string
+          example: President Pro Tempore
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

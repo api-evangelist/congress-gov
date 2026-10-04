@@ -85,6 +85,53 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    houseRequirement:
+      type: object
+      properties:
+        number:
+          type: integer
+          example: 8070
+        updateDate:
+          type: string
+          format: date
+          example: '2021-08-13'
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/house-requirement/8070?format=json
+    matchCommunication:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 90774
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/house-requirement/8070/matching-communications?format=json
+    MatchCommunications:
+      type: object
+      properties:
+        matchCommunications:
+          type: array
+          items:
+            $ref: '#/components/schemas/matchCommunications'
+    communicationType:
+      type: object
+      properties:
+        code:
+          type: string
+          example: EC
+        name:
+          type: string
+          example: Executive Communication
+    HouseRequirements:
+      type: object
+      properties:
+        houseRequirements:
+          type: array
+          items:
+            $ref: '#/components/schemas/houseRequirement'
     matchCommunications:
       type: object
       properties:
@@ -103,27 +150,6 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/house-communication/112/EC/2?format=json
-    houseRequirement:
-      type: object
-      properties:
-        number:
-          type: integer
-          example: 8070
-        updateDate:
-          type: string
-          format: date
-          example: '2021-08-13'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/house-requirement/8070?format=json
-    HouseRequirements:
-      type: object
-      properties:
-        houseRequirements:
-          type: array
-          items:
-            $ref: '#/components/schemas/houseRequirement'
     HouseRequirement:
       type: object
       properties:
@@ -157,40 +183,18 @@ components:
               type: string
               format: date
               example: '2021-08-13'
-    matchCommunication:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 90774
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/house-requirement/8070/matching-communications?format=json
-    MatchCommunications:
-      type: object
-      properties:
-        matchCommunications:
-          type: array
-          items:
-            $ref: '#/components/schemas/matchCommunications'
-    communicationType:
-      type: object
-      properties:
-        code:
-          type: string
-          example: EC
-        name:
-          type: string
-          example: Executive Communication
   parameters:
-    requirementNumber:
-      name: requirementNumber
-      in: path
-      description: The requirement’s assigned number. For example, the value can be 8070.
-      required: true
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
       schema:
-        type: integer
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
     limit:
       name: limit
       in: query
@@ -205,17 +209,13 @@ components:
       required: false
       schema:
         type: integer
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
+    requirementNumber:
+      name: requirementNumber
+      in: path
+      description: The requirement’s assigned number. For example, the value can be 8070.
+      required: true
       schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
+        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
