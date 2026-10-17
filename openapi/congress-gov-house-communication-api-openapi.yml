@@ -113,13 +113,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    communicationNumber:
-      name: communicationNumber
-      in: path
-      description: The communication’s assigned number. For example, the value can be 3324.
-      required: true
-      schema:
-        type: integer
     format:
       name: format
       in: query
@@ -138,18 +131,6 @@ components:
       required: false
       schema:
         type: integer
-    communicationType:
-      name: communicationType
-      in: path
-      description: The type of communication. Value can be ec, ml, pm, or pt.
-      required: true
-      schema:
-        type: string
-        enum:
-        - ec
-        - ml
-        - pm
-        - pt
     congress:
       name: congress
       in: path
@@ -165,16 +146,26 @@ components:
       required: false
       schema:
         type: integer
-  schemas:
     communicationType:
-      type: object
-      properties:
-        code:
-          type: string
-          example: EC
-        name:
-          type: string
-          example: Executive Communication
+      name: communicationType
+      in: path
+      description: The type of communication. Value can be ec, ml, pm, or pt.
+      required: true
+      schema:
+        type: string
+        enum:
+        - ec
+        - ml
+        - pm
+        - pt
+    communicationNumber:
+      name: communicationNumber
+      in: path
+      description: The communication’s assigned number. For example, the value can be 3324.
+      required: true
+      schema:
+        type: integer
+  schemas:
     HouseCommunications:
       type: object
       properties:
@@ -182,28 +173,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/houseCommunication'
-    houseCommunication:
+    subcommittees:
       type: object
       properties:
-        chamber:
+        name:
           type: string
-          example: House
-        communicationType:
-          $ref: '#/components/schemas/communicationType'
-        congressNumber:
-          type: integer
-          example: 117
-        number:
+          example: Investigations and Oversight Subcommittee
+        systemCode:
           type: string
-          example: '2057'
-        updateDate:
-          type: string
-          format: date
-          example: '2021-09-01'
+          example: hspw01
         url:
           type: string
           format: url
-          example: https://api.congress.gov/v3/house-communication/117/ec/2057?format=json
+          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
     HouseCommunicationTypeNumber:
       type: object
       properties:
@@ -271,19 +253,37 @@ components:
           type: string
           format: date
           example: '2024-09-03'
-    subcommittees:
+    communicationType:
       type: object
       properties:
+        code:
+          type: string
+          example: EC
         name:
           type: string
-          example: Investigations and Oversight Subcommittee
-        systemCode:
+          example: Executive Communication
+    houseCommunication:
+      type: object
+      properties:
+        chamber:
           type: string
-          example: hspw01
+          example: House
+        communicationType:
+          $ref: '#/components/schemas/communicationType'
+        congressNumber:
+          type: integer
+          example: 117
+        number:
+          type: string
+          example: '2057'
+        updateDate:
+          type: string
+          format: date
+          example: '2021-09-01'
         url:
           type: string
           format: url
-          example: https://api.congress.gov/v3/committee/house/hspw01?format=json
+          example: https://api.congress.gov/v3/house-communication/117/ec/2057?format=json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

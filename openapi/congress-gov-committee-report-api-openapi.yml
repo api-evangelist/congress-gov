@@ -149,6 +149,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    committeereportsformats:
+      type: object
+      properties:
+        isErrata:
+          type: string
+          example: N
+        type:
+          type: string
+          example: Formatted Text
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm
+    CommitteeReportsText:
+      type: array
+      items:
+        $ref: '#/components/schemas/committeereportsformats'
     committeeReports:
       type: object
       properties:
@@ -178,39 +195,6 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/bill/117hr570?format=json
-    CommitteeReportsText:
-      type: array
-      items:
-        $ref: '#/components/schemas/committeereportsformats'
-    committeereportsformats:
-      type: object
-      properties:
-        isErrata:
-          type: string
-          example: N
-        type:
-          type: string
-          example: Formatted Text
-        url:
-          type: string
-          format: url
-          example: https://www.congress.gov/116/crpt/hrpt617/generated/CRPT-116hrpt617.htm
-    associatedBill:
-      type: object
-      properties:
-        congress:
-          type: integer
-          example: 116
-        number:
-          type: string
-          example: '6395'
-        type:
-          type: string
-          example: HR
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/bill/116/hr/6395?format=json
     CommitteeReportsNumber:
       type: array
       items:
@@ -252,6 +236,22 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/committeeReports'
+    associatedBill:
+      type: object
+      properties:
+        congress:
+          type: integer
+          example: 116
+        number:
+          type: string
+          example: '6395'
+        type:
+          type: string
+          example: HR
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/bill/116/hr/6395?format=json
   parameters:
     format:
       name: format
@@ -271,13 +271,16 @@ components:
       required: false
       schema:
         type: string
-    limit:
-      name: limit
+    conference:
+      name: conference
       in: query
-      description: The number of records returned. The maximum limit is 250.
+      description: Flag to indicate conference reports. Value can be true or false.
       required: false
       schema:
-        type: integer
+        type: boolean
+        enum:
+        - true
+        - false
     reportType:
       name: reportType
       in: path
@@ -289,31 +292,6 @@ components:
         - hrpt
         - srpt
         - erpt
-    congress:
-      name: congress
-      in: path
-      description: The congress number. For example, can be 117.
-      required: true
-      schema:
-        type: integer
-        format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    conference:
-      name: conference
-      in: query
-      description: Flag to indicate conference reports. Value can be true or false.
-      required: false
-      schema:
-        type: boolean
-        enum:
-        - true
-        - false
     reportNumber:
       name: reportNumber
       in: path
@@ -328,6 +306,28 @@ components:
       required: false
       schema:
         type: string
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    congress:
+      name: congress
+      in: path
+      description: The congress number. For example, can be 117.
+      required: true
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

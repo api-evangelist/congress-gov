@@ -104,6 +104,13 @@ components:
       required: false
       schema:
         type: integer
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     congress:
       name: congress
       in: path
@@ -112,31 +119,7 @@ components:
       schema:
         type: integer
         format: int32
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
   schemas:
-    Sessions:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: House of Representatives
-        number:
-          type: integer
-          example: 1
-        startDate:
-          type: string
-          format: date
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date
-          example: '2020-01-01'
     Congress:
       type: object
       properties:
@@ -157,6 +140,23 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Congress'
+    Sessions:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: House of Representatives
+        number:
+          type: integer
+          example: 1
+        startDate:
+          type: string
+          format: date
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date
+          example: '2020-01-01'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

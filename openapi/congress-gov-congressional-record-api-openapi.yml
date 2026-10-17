@@ -40,13 +40,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    y:
-      name: y
-      in: query
-      description: The year the issue was published. For example, the value can be 2022.
-      required: false
-      schema:
-        type: integer
     format:
       name: format
       in: query
@@ -72,6 +65,13 @@ components:
       required: false
       schema:
         type: integer
+    y:
+      name: y
+      in: query
+      description: The year the issue was published. For example, the value can be 2022.
+      required: false
+      schema:
+        type: integer
     offset:
       name: offset
       in: query
@@ -87,16 +87,6 @@ components:
       schema:
         type: integer
   schemas:
-    CongressionalRecord:
-      type: object
-      properties:
-        IndexStart:
-          type: integer
-          example: 1
-        Issues:
-          type: array
-          items:
-            $ref: '#/components/schemas/issues'
     issues:
       type: object
       properties:
@@ -227,6 +217,16 @@ components:
         Volume:
           type: string
           example: '168'
+    CongressionalRecord:
+      type: object
+      properties:
+        IndexStart:
+          type: integer
+          example: 1
+        Issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/issues'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

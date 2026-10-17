@@ -132,13 +132,6 @@ components:
       required: false
       schema:
         type: integer
-    issueNumber:
-      name: issueNumber
-      in: path
-      description: The specified issue of the daily Congressional record, for example 153.
-      required: true
-      schema:
-        type: integer
     offset:
       name: offset
       in: query
@@ -153,39 +146,24 @@ components:
       required: true
       schema:
         type: integer
+    issueNumber:
+      name: issueNumber
+      in: path
+      description: The specified issue of the daily Congressional record, for example 153.
+      required: true
+      schema:
+        type: integer
   schemas:
-    DailyCongressionalRecordIssue:
+    article:
       type: object
       properties:
-        issue:
-          type: object
-          properties:
-            congress:
-              type: integer
-              example: 119
-            fullIssue:
-              $ref: '#/components/schemas/fullIssue'
-            issueDate:
-              type: string
-              format: date-time
-              example: '2025-01-03T05:00:00Z'
-            issueNumber:
-              type: string
-              example: '1'
-            sessionNumber:
-              type: integer
-              example: 1
-            updateDate:
-              type: string
-              format: date-time
-              example: '2025-01-04T16:59:21Z'
-            url:
-              type: string
-              format: url
-              example: https://api.congress.gov/v3/daily-congressional-record/171/1?format=json
-            volumeNumber:
-              type: integer
-              example: 171
+        name:
+          type: string
+          example: Daily Digest
+        sectionArticles:
+          type: array
+          items:
+            $ref: '#/components/schemas/sectionArticle'
     fullIssue:
       type: object
       properties:
@@ -240,17 +218,6 @@ components:
                       type: string
                       format: url
                       example: https://www.congress.gov/119/crec/2025/01/03/d03ja5-1.htm
-    DailyCongressionalRecordArticles:
-      type: object
-      properties:
-        articles:
-          type: array
-          items:
-            $ref: '#/components/schemas/article'
-    DailyCongressionalRecord:
-      type: array
-      items:
-        $ref: '#/components/schemas/dailyCongressionalRecord'
     sectionArticle:
       type: object
       properties:
@@ -276,16 +243,45 @@ components:
           type: string
           format: url
           example: Daily Digest/Next Meeting of the SENATE + Next Meeting of the HOUSE OF REPRESENTATIVES + Other End Matter; Congressional Record Vol. 166, No. 153
-    article:
+    DailyCongressionalRecordArticles:
       type: object
       properties:
-        name:
-          type: string
-          example: Daily Digest
-        sectionArticles:
+        articles:
           type: array
           items:
-            $ref: '#/components/schemas/sectionArticle'
+            $ref: '#/components/schemas/article'
+    DailyCongressionalRecordIssue:
+      type: object
+      properties:
+        issue:
+          type: object
+          properties:
+            congress:
+              type: integer
+              example: 119
+            fullIssue:
+              $ref: '#/components/schemas/fullIssue'
+            issueDate:
+              type: string
+              format: date-time
+              example: '2025-01-03T05:00:00Z'
+            issueNumber:
+              type: string
+              example: '1'
+            sessionNumber:
+              type: integer
+              example: 1
+            updateDate:
+              type: string
+              format: date-time
+              example: '2025-01-04T16:59:21Z'
+            url:
+              type: string
+              format: url
+              example: https://api.congress.gov/v3/daily-congressional-record/171/1?format=json
+            volumeNumber:
+              type: integer
+              example: 171
     dailyCongressionalRecord:
       type: object
       properties:
@@ -313,6 +309,10 @@ components:
         volumeNumber:
           type: string
           example: '169'
+    DailyCongressionalRecord:
+      type: array
+      items:
+        $ref: '#/components/schemas/dailyCongressionalRecord'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

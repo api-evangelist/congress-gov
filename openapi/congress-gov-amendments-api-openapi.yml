@@ -242,24 +242,10 @@ components:
         enum:
         - xml
         - json
-    fromDateTime:
-      name: fromDateTime
+    limit:
+      name: limit
       in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
+      description: The number of records returned. The maximum limit is 250.
       required: false
       schema:
         type: integer
@@ -278,6 +264,20 @@ components:
       required: true
       schema:
         type: string
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     amendmentType:
       name: amendmentType
       in: path
@@ -285,23 +285,55 @@ components:
       required: true
       schema:
         type: string
-    limit:
-      name: limit
+    toDateTime:
+      name: toDateTime
       in: query
-      description: The number of records returned. The maximum limit is 250.
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
       required: false
       schema:
-        type: integer
+        type: string
   schemas:
-    sourceSystem:
+    Sponsor:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-        name:
+        bioguideId:
           type: string
-          example: Senate
+          example: G000555
+        firstName:
+          type: string
+          example: Bill
+        lastName:
+          type: string
+          example: Washington
+        fullName:
+          type: string
+          example: Senator Bill Washington [I-NY]
+        isByRequest:
+          type: string
+          example: N
+        middleName:
+          type: string
+          example: J.
+        party:
+          type: string
+          example: I
+        state:
+          type: string
+          example: VA
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/member/G000555?format=json
+    textVersion:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        url:
+          type: string
+          format: url
+          example: https://api.congress.gov/v3/amendment/117/samdt/4/text?format=json
     CoSponsor:
       type: object
       properties:
@@ -377,66 +409,6 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/amendment/117/samdt/2137?format=json
-    amendmentActions:
-      type: object
-      properties:
-        actionDate:
-          type: string
-          format: date
-          example: '2021-08-08'
-        recordedVotes:
-          type: array
-          items:
-            $ref: '#/components/schemas/recordedVote'
-        sourceSystem:
-          $ref: '#/components/schemas/sourceSystem'
-        text:
-          type: string
-          example: 'Amendment SA 2137 agreed to in Senate by Yea-Nay Vote. 69 - 28. Record Vote Number: 312.'
-        type:
-          type: string
-          example: Floor
-    AmendmentCosponsors:
-      type: array
-      items:
-      - $ref: '#/components/schemas/CoSponsor'
-    recordedVote:
-      type: object
-      properties:
-        chamber:
-          type: string
-          example: Senate
-        congress:
-          type: integer
-          example: 117
-        date:
-          type: string
-          format: date-time
-          example: '2021-08-08T12:00:00Z'
-        rollNumber:
-          type: integer
-          example: 312
-        sessionNumber:
-          type: integer
-          example: 1
-        url:
-          type: string
-          format: url
-          example: https://www.senate.gov/legislative/LIS/roll_call_votes/vote1171/vote_117_1_00312.xml
-    AmendmentText:
-      type: array
-      items:
-      - $ref: '#/components/schemas/textVersions'
-    textVersion:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 1
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/amendment/117/samdt/4/text?format=json
     amendedBill:
       type: object
       properties:
@@ -466,10 +438,97 @@ components:
           type: string
           format: url
           example: https://api.congress.gov/v3/bill/117/sconres/5?format=json
+    textVersions:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          example: '2022-02-18T16:38:41Z'
+        formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/formats'
+        type:
+          type: string
+          example: Enrolled Bill
+    sourceSystem:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+        name:
+          type: string
+          example: Senate
     AmendmentAmendments:
       type: array
       items:
       - $ref: '#/components/schemas/Amendment'
+    recordedVote:
+      type: object
+      properties:
+        chamber:
+          type: string
+          example: Senate
+        congress:
+          type: integer
+          example: 117
+        date:
+          type: string
+          format: date-time
+          example: '2021-08-08T12:00:00Z'
+        rollNumber:
+          type: integer
+          example: 312
+        sessionNumber:
+          type: integer
+          example: 1
+        url:
+          type: string
+          format: url
+          example: https://www.senate.gov/legislative/LIS/roll_call_votes/vote1171/vote_117_1_00312.xml
+    AmendmentCosponsors:
+      type: array
+      items:
+      - $ref: '#/components/schemas/CoSponsor'
+    formats:
+      type: object
+      properties:
+        type:
+          type: string
+          example: Formatted Text
+        url:
+          type: string
+          format: url
+          example: https://www.congress.gov/117/bills/hr3076/BILLS-117hr3076enr.htm
+    AmendmentText:
+      type: array
+      items:
+      - $ref: '#/components/schemas/textVersions'
+    AmendmentActions:
+      type: array
+      items:
+      - $ref: '#/components/schemas/amendmentActions'
+    amendmentActions:
+      type: object
+      properties:
+        actionDate:
+          type: string
+          format: date
+          example: '2021-08-08'
+        recordedVotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/recordedVote'
+        sourceSystem:
+          $ref: '#/components/schemas/sourceSystem'
+        text:
+          type: string
+          example: 'Amendment SA 2137 agreed to in Senate by Yea-Nay Vote. 69 - 28. Record Vote Number: 312.'
+        type:
+          type: string
+          example: Floor
     AmendmentNumber:
       type: object
       properties:
@@ -510,65 +569,6 @@ components:
           type: string
           format: date-time
           example: '2021-08-08T12:00:00Z'
-    formats:
-      type: object
-      properties:
-        type:
-          type: string
-          example: Formatted Text
-        url:
-          type: string
-          format: url
-          example: https://www.congress.gov/117/bills/hr3076/BILLS-117hr3076enr.htm
-    AmendmentActions:
-      type: array
-      items:
-      - $ref: '#/components/schemas/amendmentActions'
-    Sponsor:
-      type: object
-      properties:
-        bioguideId:
-          type: string
-          example: G000555
-        firstName:
-          type: string
-          example: Bill
-        lastName:
-          type: string
-          example: Washington
-        fullName:
-          type: string
-          example: Senator Bill Washington [I-NY]
-        isByRequest:
-          type: string
-          example: N
-        middleName:
-          type: string
-          example: J.
-        party:
-          type: string
-          example: I
-        state:
-          type: string
-          example: VA
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/member/G000555?format=json
-    textVersions:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-          example: '2022-02-18T16:38:41Z'
-        formats:
-          type: array
-          items:
-            $ref: '#/components/schemas/formats'
-        type:
-          type: string
-          example: Enrolled Bill
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -59,84 +59,25 @@ paths:
       operationId: getCrsreportByReportNumber
       x-operation-id-source: derived
 components:
-  parameters:
-    format:
-      name: format
-      in: query
-      description: The data format. Value can be xml or json.
-      required: false
-      schema:
-        type: string
-        default: xml
-        enum:
-        - xml
-        - json
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      description: The number of records returned. The maximum limit is 250.
-      required: false
-      schema:
-        type: integer
-    offset:
-      name: offset
-      in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    crsReportNumber:
-      name: reportNumber
-      in: path
-      description: The number or ID of the report. For example, R47175.
-      required: true
-      schema:
-        type: string
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
   schemas:
-    crsreport:
+    relatedMaterial:
       type: object
       properties:
-        contentType:
+        URL:
           type: string
-          example: Reports
-        id:
+          example: https://api.congress.gov/v3/law/93/pub/344
+        congress:
+          type: integer
+          example: 93
+        number:
           type: string
-          example: R43083
-        publishDate:
-          type: string
-          format: date-time
-          example: '2025-02-05T11:34:25Z'
-        status:
-          type: string
-          example: Active
+          example: 93-344
         title:
           type: string
-          example: 'SBA Assistance to Small Business Startups: Client Experiences and Program Impact'
-        updateDate:
+          example: Providing for budget allocations, and for other purposes.
+        type:
           type: string
-          format: date-time
-          example: '2025-02-07T01:36:49Z'
-        url:
-          type: string
-          format: url
-          example: https://api.congress.gov/v3/crsreport/R43083
-        version:
-          type: integer
-          example: 145
+          example: PUB
     format:
       type: object
       properties:
@@ -147,6 +88,12 @@ components:
         type: string
         format: url
         example: https://www.congress.gov/crs_external_products/R/PDF/R47175/R47175.1.pdf
+    author:
+      type: object
+      properties:
+        author:
+          type: string
+          example: Megan S. Lynch
     CrsReport:
       type: object
       properties:
@@ -154,6 +101,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/crsreport'
+    topic:
+      type: object
+      properties:
+        topic:
+          type: string
+          example: Budget & Appropriations Procedure
     CrsReportDetail:
       type: object
       properties:
@@ -203,36 +156,83 @@ components:
         version:
           type: integer
           example: 1
-    relatedMaterial:
+    crsreport:
       type: object
       properties:
-        URL:
+        contentType:
           type: string
-          example: https://api.congress.gov/v3/law/93/pub/344
-        congress:
-          type: integer
-          example: 93
-        number:
+          example: Reports
+        id:
           type: string
-          example: 93-344
+          example: R43083
+        publishDate:
+          type: string
+          format: date-time
+          example: '2025-02-05T11:34:25Z'
+        status:
+          type: string
+          example: Active
         title:
           type: string
-          example: Providing for budget allocations, and for other purposes.
-        type:
+          example: 'SBA Assistance to Small Business Startups: Client Experiences and Program Impact'
+        updateDate:
           type: string
-          example: PUB
-    topic:
-      type: object
-      properties:
-        topic:
+          format: date-time
+          example: '2025-02-07T01:36:49Z'
+        url:
           type: string
-          example: Budget & Appropriations Procedure
-    author:
-      type: object
-      properties:
-        author:
-          type: string
-          example: Megan S. Lynch
+          format: url
+          example: https://api.congress.gov/v3/crsreport/R43083
+        version:
+          type: integer
+          example: 145
+  parameters:
+    toDateTime:
+      name: toDateTime
+      in: query
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    format:
+      name: format
+      in: query
+      description: The data format. Value can be xml or json.
+      required: false
+      schema:
+        type: string
+        default: xml
+        enum:
+        - xml
+        - json
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      required: false
+      schema:
+        type: integer
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
+    crsReportNumber:
+      name: reportNumber
+      in: path
+      description: The number or ID of the report. For example, R47175.
+      required: true
+      schema:
+        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

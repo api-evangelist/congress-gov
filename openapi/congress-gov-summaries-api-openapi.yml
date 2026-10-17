@@ -108,10 +108,10 @@ components:
         enum:
         - xml
         - json
-    sort:
-      name: sort
+    toDateTime:
+      name: toDateTime
       in: query
-      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
+      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
       required: false
       schema:
         type: string
@@ -122,13 +122,6 @@ components:
       required: false
       schema:
         type: integer
-    toDateTime:
-      name: toDateTime
-      in: query
-      description: 'The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
-      required: false
-      schema:
-        type: string
     billType:
       name: billType
       in: path
@@ -136,6 +129,20 @@ components:
       required: true
       schema:
         type: string
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      required: false
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      required: false
+      schema:
+        type: integer
     congress:
       name: congress
       in: path
@@ -144,25 +151,14 @@ components:
       schema:
         type: integer
         format: int32
-    offset:
-      name: offset
+    sort:
+      name: sort
       in: query
-      description: The starting record returned. 0 is the first record.
-      required: false
-      schema:
-        type: integer
-    fromDateTime:
-      name: fromDateTime
-      in: query
-      description: 'The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z.'
+      description: Sort by update date in Congress.gov. Value can be updateDate+asc or updateDate+desc.
       required: false
       schema:
         type: string
   schemas:
-    Summaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/summariesArray'
     summaryBill:
       type: object
       properties:
@@ -224,6 +220,10 @@ components:
         versionCode:
           type: string
           example: '173'
+    Summaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/summariesArray'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
